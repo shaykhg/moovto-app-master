@@ -1,0 +1,281 @@
+<div class="container p-t-8">
+  <mat-card class="my_card">
+    <h3 class="fs-5 mb-4 m-t-8">{{'choosePickup' | language}}</h3>
+    <form [formGroup]="pickupForm">
+      <div class="row mt-2">
+        <div class="p-1">
+          <mat-form-field style="width:100%">
+            <mat-label class=" text-black-50">{{'fullName' | language}}</mat-label>
+            <input
+                    required
+                    formControlName="name"
+                    matInput
+                    type="text"
+            />
+          </mat-form-field>
+        </div>
+        <div class="p-1">
+          <mat-form-field style="width:100%">
+            <mat-label class=" text-black-50">{{'phone' | language}}</mat-label>
+            <input
+                    required
+                    formControlName="phone"
+                    matInput
+                    type="tel"
+                    minlength="10"
+                    maxlength="10"
+                    placeholder="9876543210"
+            />
+          </mat-form-field>
+        </div>
+      </div>
+      <div class="row mt-2">
+        <div class="p-1">
+          <mat-form-field style="width:100%">
+            <mat-label class="text-black-50 ">{{'searchStreet' | language}}</mat-label>
+            <input required
+                   #pickupTerm
+                   (input)="handleSearch(pickupTerm.value, 1)"
+                   [(ngModel)]="placeNamePickup"
+                   [ngModelOptions]="{standalone: true}"
+                   matInput type="text"
+            />
+            <div class="autocomplete-panel" id="autoBalloon">
+              <mat-card *ngIf="resultsPick.length > 0">
+                <div (click)="setPickUpAddress(place)" *ngFor="let place of resultsPick"
+                     class="t-left autocomplete-row">
+                  <p>{{place.description}}</p>
+                  <hr>
+                </div>
+              </mat-card>
+            </div>
+          </mat-form-field>
+        </div>
+      </div>
+
+      <div class="row mt-2">
+        <div class="p-1">
+          <mat-form-field style="width:100%">
+            <mat-label class=" text-black-50">{{'streetBUilding' | language}}</mat-label>
+            <input
+                    required
+                    formControlName="building"
+                    matInput
+                    type="text"
+                    placeholder="Street#, Building#, Apartment#"
+
+            />
+          </mat-form-field>
+        </div>
+        <div class="p-1">
+          <mat-form-field style="width:100%">
+            <mat-label class=" text-black-50">{{'doorCode' | language}}</mat-label>
+            <input
+                    formControlName="doorCode"
+                    matInput
+                    type="text"
+            />
+          </mat-form-field>
+        </div>
+      </div>
+      <div class="row mt-2">
+        <div class="p-1">
+<!--          <mat-form-field style="width:100%">-->
+<!--            <mat-label class=" text-black-50">Street</mat-label>-->
+<!--            <input-->
+<!--                    required-->
+<!--                    formControlName="street"-->
+<!--                    matInput-->
+<!--                    type="text"-->
+<!--            />-->
+<!--          </mat-form-field>-->
+        </div>
+        <div class="p-1">
+          <mat-form-field style="width:100%">
+            <mat-label class=" text-black-50">{{'city' | language}}</mat-label>
+            <input
+                    required
+                    formControlName="city"
+                    matInput
+                    type="text"
+            />
+          </mat-form-field>
+        </div>
+      </div>
+      <div class="row mt-2">
+        <div class="p-1">
+          <mat-form-field style="width:100%">
+            <mat-label class=" text-black-50">{{'postCode' | language}}</mat-label>
+            <input
+                    required
+                    formControlName="postCode"
+                    matInput
+                    type="text"
+                    minlength="5"
+                    maxlength="5"
+            />
+          </mat-form-field>
+        </div>
+        <div class="p-1"></div>
+      </div>
+      <div class="row mt-2">
+        <div class="p-1">
+          <mat-form-field style="width:100%">
+            <mat-label class=" text-black-50">{{'picknoteR' | language}}</mat-label>
+            <input
+                    formControlName="noteForRider"
+                    matInput
+                    type="text"
+            />
+          </mat-form-field>
+        </div>
+      </div>
+    </form>
+  </mat-card>
+</div>
+<!-- ///////////////////////////////////////////////////////////////////////////////////// -->
+
+<div class="container p-t-8">
+  <mat-card class="drop_card">
+    <h3 class="fs-5 mb-4 m-t-8">{{'choosedropLoc' | language}}</h3>
+    <div class="guide-hint"   tooltip="{{'insertSameperson' | language}}" placement="top">{{'pickupDroppersonSame' | language}}?🤔  </div>
+
+    <form [formGroup]="dropUpForm">
+      <div class="row mt-2">
+        <div class="p-1">
+          <mat-form-field style="width:100%">
+            <mat-label class=" text-black-50">{{'fullName' | language}}</mat-label>
+            <input
+                    required
+                    formControlName="name"
+                    matInput
+                    type="text"
+            />
+          </mat-form-field>
+        </div>
+        <div class="p-1">
+          <mat-form-field style="width:100%">
+            <mat-label class=" text-black-50">{{'phone' | language}}</mat-label>
+            <input
+                    required
+                    formControlName="phone"
+                    matInput
+                    type="tel"
+                    minlength="10"
+                    maxlength="10"
+                    placeholder="9876543210"
+
+            />
+          </mat-form-field>
+        </div>
+      </div>
+
+      <div class="row mt-2">
+        <div class="p-1">
+          <mat-form-field style="width:100%">
+            <mat-label class="text-black-50 ">{{'searchStreet' | language}}</mat-label>
+            <input
+                    required
+                    #dropTerm
+                    (input)="handleSearch(dropTerm.value, 2)"
+                    [ngModelOptions]="{standalone: true}"
+                    [(ngModel)]="placeNameDrop" matInput type="text"
+            />
+            <div class="autocomplete-panel">
+              <mat-card *ngIf="resultsDrop.length > 0">
+                <div (click)="setDropAddress(place)" *ngFor="let place of resultsDrop"
+                     class="t-left autocomplete-row">
+                  <p>{{place.description}}</p>
+                  <hr>
+                </div>
+              </mat-card>
+            </div>
+          </mat-form-field>
+        </div>
+      </div>
+
+      <div class="row mt-2">
+        <div class="p-1">
+          <mat-form-field style="width:100%">
+            <mat-label class="text-black-50">{{'streetBUilding' | language}}</mat-label>
+            <input
+                    required
+                    formControlName="building"
+                    matInput
+                    type="text"
+                    placeholder="Street#, Building#, Apartment#"
+            />
+          </mat-form-field>
+        </div>
+        <div class="p-1">
+          <mat-form-field style="width:100%">
+            <mat-label class=" text-black-50">{{'doorCode' | language}}</mat-label>
+            <input
+
+                    formControlName="doorCode"
+                    matInput
+                    type="text"
+            />
+          </mat-form-field>
+        </div>
+      </div>
+      <div class="row mt-2">
+<!--        <div class="p-1">-->
+<!--          <mat-form-field style="width:100%">-->
+<!--            <mat-label class=" text-black-50">Street</mat-label>-->
+<!--            <input-->
+<!--                    required-->
+<!--                    formControlName="street"-->
+<!--                    matInput-->
+<!--                    type="text"-->
+<!--            />-->
+<!--          </mat-form-field>-->
+<!--        </div>-->
+        <div class="p-1">
+          <mat-form-field style="width:100%">
+            <mat-label class=" text-black-50">{{'city' | language}}</mat-label>
+            <input
+                    required
+                    formControlName="city"
+                    matInput
+                    type="text"
+            />
+          </mat-form-field>
+        </div>
+      </div>
+      <div class="row mt-2">
+        <div class="p-1">
+          <mat-form-field style="width:100%">
+            <mat-label class=" text-black-50">{{'postCode' | language}}</mat-label>
+            <input
+                    required
+                    formControlName="postCode"
+                    matInput
+                    type="text"
+                    minlength="5"
+                    maxlength="5"
+            />
+          </mat-form-field>
+        </div>
+        <div class="p-1"></div>
+      </div>
+
+      <div class="row mt-2">
+        <div class="p-1">
+          <mat-form-field style="width:100%">
+            <mat-label class=" text-black-50">{{'dropnoteRider' | language}}</mat-label>
+            <input
+                    formControlName="noteForRider"
+                    matInput
+                    type="text"
+            />
+          </mat-form-field>
+        </div>
+      </div>
+
+    </form>
+  </mat-card>
+</div>
+<div class="text-center mt-5">
+  <button (click)="findDistance()" class=" sub_btn" mat-raised-button [disabled]="!dropUpForm.valid || !pickupForm.valid">{{'goSchedule' | language}}</button>
+</div>

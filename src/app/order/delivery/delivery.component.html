@@ -1,0 +1,37 @@
+<ion-header>
+    <ion-toolbar>
+        <div class="dis-flex justify-content-between">
+            <span  class="align-self-center">
+                <ion-title >{{'placeDeliver' | language}}</ion-title>
+            </span>
+            <span>
+  <ion-icon (click)="util.showWarning(1)"  class="fs-24 m-r-10" name="close"></ion-icon>
+
+            </span>
+        </div>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <p style="padding: 10px; color: #7C7B7B">
+        {{'chooseoptionbelow' | language}}
+    </p>
+    <mat-tab-group [(selectedIndex)]="data.tabIndex" class="delivery">
+        <mat-tab class="mb-4" label="{{'prepShipment' | language}}" [disabled]="data.tabs[0]">
+            <app-shipment-pickup></app-shipment-pickup>
+        </mat-tab>
+
+        <mat-tab class="mb-4" label="{{'deliveryDetails' | language }}" [disabled]="data.tabs[1]">
+            <app-delivery-location></app-delivery-location>
+        </mat-tab>
+
+        <mat-tab [disabled]="data.tabs[2]" label="{{'schedulePickup' | language}}">
+            <app-time-schedule></app-time-schedule>
+        </mat-tab>
+
+        <mat-tab [disabled]="data.tabs[3]" label="{{'paymentsteF' | language}}">
+            <app-checkout></app-checkout>
+        </mat-tab>
+
+    </mat-tab-group>
+</ion-content>

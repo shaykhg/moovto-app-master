@@ -1,0 +1,165 @@
+<ion-header>
+    <ion-toolbar>
+        <ion-title>{{'notification' | language}}</ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+    <div class="container mt-4" *ngIf="notification.length > 0; else noNotification">
+<!--        <p class="text-black-50 mt-4">Today</p>-->
+        <div class="t-right"><span class="clear" (click)="clearNoti()">{{'clearAll' | language}}</span></div>
+        <div class="row " *ngFor="let notify of notification">
+            <div class="col-3" style="width: 18%">
+
+                <img
+                        [src]="notify.img"
+                        alt=""
+                        class="notify_ico"
+                />
+            </div>
+            <div class="col-9" >
+                <p class="text-black-50">
+                    <span class="text-dark fw-bold">{{notify.title}}</span> &nbsp;<span [class] = 'getColor(notify)'>{{notify.text}}</span>
+                </p>
+            </div>
+        </div>
+
+    </div>
+
+
+    <ng-template #noNotification>
+
+        <div class="main">
+            <img alt="" src="assets/deliveryhistory/emptystate/cat.png">
+            <p>{{'noNotification' | language}}</p>
+        </div>
+    </ng-template>
+    <!-- Delivery Completed -->
+    <!-- <div class="container">
+        <p class="mt-4 text-black-50">
+            Please rate us below to help improve our service in future
+        </p>
+        <div class="text-center mb-4">
+            <img
+                src="assets/deliverycomplete/check.png"
+                class=""
+                alt=""
+                style="height: 200px"
+            />
+        </div>
+        <div>
+            <h3 class="ms-2 ps-1">Rate the Rider</h3>
+            <span class="ms-2 ps-1 text-black-50">Mark doe</span>
+            <div class="p-2">
+                <img
+                    src="assets/deliverycomplete/star.png"
+                    alt=""
+                    class=""
+                    style="height: 25px"
+                />
+                <img
+                    src="assets/deliverycomplete/star.png"
+                    alt=""
+                    class="ms-3"
+                    style="height: 25px"
+                />
+                <img
+                    src="assets/deliverycomplete/star.png"
+                    alt=""
+                    class="ms-3"
+                    style="height: 25px"
+                />
+                <img
+                    src="assets/deliverycomplete/star.png"
+                    alt=""
+                    class="ms-3"
+                    style="height: 25px"
+                />
+                <img
+                    src="assets/deliverycomplete/star.png"
+                    alt=""
+                    class="ms-3 text-black-50"
+                    style="height: 25px"
+                />
+        <span class="ms-5 ps-5" style="color: #F78C3A;">Excellent!</span>
+                <hr />
+            </div>
+        </div>
+        <div class="mt-5">
+            <h3 class="ms-2 ps-1">Rate Us</h3>
+            <span class="ms-2 ps-1 text-black-50">Moveapp</span>
+            <div class="p-2">
+                <img
+                    src="assets/deliverycomplete/star.png"
+                    alt=""
+                    class=""
+                    style="height: 25px"
+                />
+                <img
+                    src="assets/deliverycomplete/star.png"
+                    alt=""
+                    class="ms-3"
+                    style="height: 25px"
+                />
+                <img
+                    src="assets/deliverycomplete/star.png"
+                    alt=""
+                    class="ms-3"
+                    style="height: 25px"
+                />
+                <img
+                    src="assets/deliverycomplete/star.png"
+                    alt=""
+                    class="ms-3"
+                    style="height: 25px"
+                />
+                <img
+                    src="assets/deliverycomplete/star.png"
+                    alt=""
+                    class="ms-3 text-black-50"
+                    style="height: 25px"
+                />
+        <span class="ms-5 ps-5" style="color: #F78C3A;">Top Notch!</span>
+                <hr />
+            </div>
+        </div>
+    </div>
+
+
+          delivery completed end -->
+
+
+
+<!--    <div class="container">-->
+<!--        <p class="text-black-50 mt-4">Today</p>-->
+<!--        <div class="row">-->
+<!--            <div class="col-3" style="width: 18%">-->
+<!--                <img-->
+<!--                        src="assets/notification/fast-delivery.png"-->
+<!--                        alt=""-->
+<!--                        class="notify_ico"-->
+<!--                />-->
+<!--            </div>-->
+<!--            <div class="col-9">-->
+<!--                <p class="text-black-50">-->
+<!--                    <span class="text-dark">Coming!</span> Your ship is on the way to its-->
+<!--                    destination-->
+<!--                </p>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--        <div class="row">-->
+<!--            <div class="col-3" style="width: 18%">-->
+<!--                <img src="assets/notification/tag.png" alt="" class="notify_ico" />-->
+<!--            </div>-->
+<!--            <div class="col-9">-->
+<!--                <p class="text-black-50">-->
+<!--                    <span class="text-dark">Coming!</span> Your ship is on the way to its-->
+<!--                    destination-->
+<!--                </p>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </div>-->
+
+
+</ion-content>

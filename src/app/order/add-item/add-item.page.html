@@ -1,0 +1,157 @@
+<ion-toolbar>
+  <div class="dis-flex justify-content-between">
+            <span  class="align-self-center">
+                <ion-title>{{'addItem' | language}}</ion-title>
+            </span>
+    <span>
+  <ion-icon (click)="modalController.dismiss()" class="fs-24 m-r-10" name="close"></ion-icon>
+
+            </span>
+  </div>
+</ion-toolbar>
+
+<ion-content>
+
+  <div >
+    <form (ngSubmit)="onSubmit()" [formGroup]="deliveryForm" class="p-4">
+      <h3>{{'selectItem' | language}}</h3>
+      <p>{{'chooseOtherType' | language}}</p>
+      <div class="row">
+
+          <ion-slides style="height:100%" [options]="slideOpts">
+            <ion-slide (click)="selectItem(subCat)"  *ngFor="let subCat of subCategories">
+              <mat-card [style.background-color]="type ===  subCat.name ? subCat.color : '#7d7d7d'" class=" img_cont_1 text-white" style="border-radius:12px">
+                <div class="icon-slide" >
+                  <img alt="" [src]=" subCat.icon ? subCat.icon :  '../../../assets/deliverycomplete/copy.png'" class="icon-img">
+                </div>
+                <div  class="t-left m-t-10">
+                  <div style="font-size: 13px">{{subCat.name.length >= 14 ? (this.translation.getLang() === 'en' ? subCat.name.slice(0, 14) : subCat.name_fi.style(0,14)) + '...' : this.translation.getLang() === 'en' ? subCat.name : subCat.name_fi}}</div>
+                  <hr>
+                  <div style="font-size: 12px;cursor: pointer">{{subCat.description ? (subCat.description.length > 35 ? subCat.description.slice(0 , 35): subCat.description) : 'No description added'}}</div>
+                </div>
+                <div></div>
+              </mat-card>
+            </ion-slide>
+          </ion-slides>
+
+      </div>
+
+      <div class="m-t-15 m-b-15 m-l-10">
+        <h3 >{{type}}</h3>
+
+      </div>
+      <div class="container mb-4">
+
+        <div class="row">
+          <div class="col-6">
+            <mat-form-field class="w-100 d-flex">
+              <mat-label style="font-size: 12px; color: #000000">{{'enterQuant' | language}}</mat-label>
+              <input [(ngModel)]="inputNum" formControlName="quantity" matInput required
+                     style="padding-bottom: 1em;"
+                     type="number">
+              <mat-error>{{'enterValidquantity' | language}}</mat-error>
+            </mat-form-field>
+          </div>
+          <div class=" col-3">
+            <button type="button" (click)="minus()" class="add-sub-btn" mat-stroked-button>-</button>
+          </div>
+          <div class="col-3">
+            <button type="button" (click)="plus()" class="add-sub-btn" mat-stroked-button>+</button>
+          </div>
+        </div>
+
+<!--        <div class="hint">If you don't know weight, height, width, length, enter "0"</div>-->
+        <div class="guide-hint"   tooltip="{{'ifDontknow' | language}}" placement="top">👉{{'donotknowDimentions' | language}} ?</div>
+        <div class="row">
+          <div class="col-6">
+            <mat-form-field class="w-100 d-flex">
+              <mat-label style="font-size: 12px; color: #000000">{{'enterWeight' | language}}</mat-label>
+              <input [(ngModel)]="getWeight" formControlName="weight"
+                     matInput
+                     required
+                     style="padding-bottom: 1em;" type="number">
+              <mat-error>{{'enterValidWeight' | language}}</mat-error>
+            </mat-form-field>
+          </div>
+          <div class=" col-6 align-self-center">
+            <span class="btn_kl">kg</span>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-6">
+            <mat-form-field class="w-100 d-flex">
+              <mat-label style="font-size: 12px; color: #000000">{{'enterHeight' | language}}</mat-label>
+              <input  formControlName="height"
+                     matInput
+                     required
+                     style="padding-bottom: 1em;" type="number">
+              <mat-error>{{'enterValidHeight' | language}}</mat-error>
+            </mat-form-field>
+          </div>
+          <div class="col-6 align-self-center">
+            <span class="btn_kl">cm</span>
+          </div>
+          <div class="col-3">
+<!--            <button type="button" (click)="setWeight('lbs')" [class]="getLbsCss()" class="btn_kl" mat-stroked-button>Lbs-->
+<!--            </button>-->
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-6">
+            <mat-form-field class="w-100 d-flex">
+              <mat-label style="font-size: 12px; color: #000000">{{'enterWidth' | language}}</mat-label>
+              <input formControlName="width" matInput
+                     style="padding-bottom: 1em;"
+                     type="number"
+                     required
+              >
+              <mat-error>{{'enterValidWidth' | language}}</mat-error>
+            </mat-form-field>
+          </div>
+          <div class="col-6 align-self-center">
+            <span class="btn_kl">cm</span>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-6">
+            <mat-form-field class="w-100 d-flex">
+              <mat-label style="font-size: 12px; color: #000000">{{'enterLenght' | language}}</mat-label>
+              <input formControlName="length" matInput required
+                     style="padding-bottom: 1em;"
+                     type="number"
+              >
+              <mat-error>{{'enterValidLength' | language}}</mat-error>
+            </mat-form-field>
+          </div>
+          <div class="col-6 align-self-center">
+            <span class="btn_kl">cm</span>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12 ">
+          <mat-form-field class="w-100 " style="margin-left: 10px" appearance="outline">
+            <mat-label style="font-size: 12px; color: #000000">{{'desc' | language}}</mat-label>
+            <textarea class="w-100" formControlName="description"
+                   matInput style="padding-bottom: 1em;"
+                      required
+                      placeholder="{{'putOtherdeliverydetails' | language}}"
+                   type="text">
+            </textarea>
+          </mat-form-field>
+        </div>
+      </div>
+      <div class="submit_btn">
+        <button class="btn_submit" [disabled]="!deliveryForm.valid || type === ''" mat-button type="submit">{{'save' | language}}</button>
+      </div>
+
+      <div class="submit_btn">
+        <button type="button" (click)="modalController.dismiss()" class="btn_cancel" mat-button>{{'cancel' | language}}</button>
+      </div>
+    </form>
+  </div>
+
+</ion-content>

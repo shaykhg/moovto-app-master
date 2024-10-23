@@ -1,0 +1,12 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">moovto</string>
+    <string name="title_activity_main">MoovTo</string>
+    <string name="package_name">app.moov.to</string>
+    <string name="custom_url_scheme">app.moov.to</string>
+    <string name="fb_app_id">app.moov.to</string>
+    <string name="fb_app_name">MoovTo</string>
+    <string name="facebook_app_id">2984858541838279</string>
+    <string name="fb_login_protocol_scheme">fb2984858541838279</string>
+    <string name="server_client_id">889331048956-hhohoeaujt2kukmplo7gsqqau4fo8moc.apps.googleusercontent.com</string>
+</resources>

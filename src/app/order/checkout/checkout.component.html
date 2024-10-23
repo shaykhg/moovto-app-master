@@ -1,0 +1,225 @@
+<div class="container p-3" *ngIf="data.getOrder()">
+
+    <mat-accordion *ngIf="data.flow === 1">
+        <mat-expansion-panel class="border-radius items" *ngFor="let item of data.getItems()">
+            <mat-expansion-panel-header class="mat-exp-header">
+                <mat-panel-title>
+                    <h5>{{item.name}}</h5>
+                </mat-panel-title>
+                <mat-panel-description>
+                </mat-panel-description>
+            </mat-expansion-panel-header>
+            <div>
+                <div  style="margin-top: 25px;">
+                    <div class="dis-flex justify-content-between"><span>{{'quantity' | language}}:</span> <span>{{item.quantity}}</span></div>
+                    <div class="dis-flex justify-content-between"><span>{{'weight' | language}}:</span>
+                        <span>{{item.weightType === 'kg' ? item.weight + ' kg' : item.weight + ' lbs'}}</span>
+                    </div>
+                    <div class="dis-flex justify-content-between"><span>{{'height' | language}}:</span> <span>{{item.height + 'cm'}}</span></div>
+                    <div class="dis-flex justify-content-between"><span>{{'width' | language}}:</span> <span>{{item.width + ' cm'}}</span></div>
+                    <div class="dis-flex justify-content-between"><span>{{'length' | language}}:</span> <span>{{item.length + ' cm'}}</span></div>
+                    <div class="dis-flex justify-content-between"><span>{{'price' | language}}:</span> <span>{{item.charge}}</span></div>
+                    <div class="dis-flex justify-content-between"><span>{{'desc' | language}}:</span> <span>{{item.description}}</span></div>
+                </div>
+            </div>
+        </mat-expansion-panel>
+    </mat-accordion>
+
+
+    <div *ngIf="data.getOrder().pickup">
+    <mat-card class="mat-elevation-z2 border-radius m-1">
+        <div class="dis-flex justify-content-between">
+            <span>{{'addDetail' | language}}</span>
+            <span>
+                <ion-icon name="home-outline"></ion-icon>
+            </span>
+        </div>
+        <hr>
+        <div>
+            <div>
+                <div class="row" *ngIf="data.getOrder().pickup">
+                    <div class="col">
+                        <div><h5><b>{{'pickAdd' | language}}</b></h5></div>
+                        <div class="row">
+                            <span class="col-5">{{'name' | language}} :</span> <span class="m-l-5 col-6">{{data.getOrder().pickup.name}}</span>
+                        </div>
+                        <div class="row">
+                            <span class="col-5">{{'phone' | language}} :</span> <span class="m-l-5 col-6">{{data.getOrder().pickup.phone}}</span>
+                        </div>
+                        <div class="row">
+                            <span class="col-5">{{'loc'  | language}} :</span> <span class="m-l-5 col-6">{{data.getOrder().pickup.googleLoc}}</span>
+                        </div>
+                        <div class="row">
+                            <span class="col-5">{{'doorCode' | language}} :</span><span class="m-l-5 col-6">{{data.getOrder().pickup.doorCode}}</span>
+                        </div>
+                        <div class="row">
+                            <span class="col-5">{{'building' | language}} :</span><span class="m-l-5 col-6">{{data.getOrder().pickup.building}}</span>
+                        </div>
+<!--                        <div class="row">-->
+<!--                            <span class="col-5">Street :</span><span class="m-l-5 col-6">{{data.getOrder().pickup.street}}</span>-->
+<!--                        </div>-->
+                        <div class="row">
+                            <span class="col-5">{{'city' | language}} :</span> <span class="m-l-5 col-6">{{data.getOrder().pickup.city}}</span>
+                        </div>
+                        <div class="row">
+                            <span class="col-5">{{'postCode' | language}} :</span><span class="m-l-5 col-6">{{data.getOrder().pickup.postCode}}</span>
+                        </div>
+                        <div class="row">
+                            <span class="col-5">{{'note' | language}} :</span><span class="m-l-5 col-6">{{data.getOrder().pickup.noteForRider}}</span>
+                        </div>
+                    </div>
+                </div>
+                <hr>
+                <div class="row" *ngIf="data.getOrder().drop">
+
+                    <div class="col">
+                        <div><h5><b>{{'dropAdd' | language}}</b></h5></div>
+                        <div class="col">
+                            <div class="row">
+                                <span class="col-5">{{'name' | language}} :</span> <span class="m-l-5 col-6">{{data.getOrder().drop.name}}</span>
+                            </div>
+                            <div class="row">
+                                <span class="col-5">{{'phone' | language}} :</span> <span class="m-l-5 col-6">{{data.getOrder().drop.phone}}</span>
+                            </div>
+                            <div class="row">
+                                <span class="col-5">{{'loc' | language}} :</span> <span class="m-l-5 col-6">{{data.getOrder().drop.googleLoc}}</span>
+                            </div>
+                            <div class="row">
+                                <span class="col-5">{{'doorCode' | language}} :</span><span class="m-l-5 col-6">{{data.getOrder().drop.doorCode}}</span>
+                            </div>
+                            <div class="row">
+                                <span class="col-5">{{'building' | language}} :</span><span class="m-l-5 col-6">{{data.getOrder().drop.building}}</span>
+                            </div>
+<!--                            <div class="row">-->
+<!--                                <span class="col-5">Street :</span><span class="m-l-5 col-6">{{data.getOrder().drop.street}}</span>-->
+<!--                            </div>-->
+                            <div class="row">
+                                <span class="col-5">{{'city' | language}} :</span> <span class="m-l-5 col-6">{{data.getOrder().drop.city}}</span>
+                            </div>
+                            <div class="row">
+                                <span class="col-5">{{'postCode' | language}} :</span><span class="m-l-5 col-6">{{data.getOrder().drop.postCode}}</span>
+                            </div>
+                            <div class="row">
+                                <span class="col-5">{{'note' | language}} :</span><span class="m-l-5 col-6">{{data.getOrder().drop.noteForRider}}</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </mat-card>
+    </div>
+
+    <div>
+        <mat-card class="mat-elevation-z2 border-radius m-1">
+
+            <div>
+                <div>
+                    <div class="row">
+                        <div class="col">
+                            <div><h5><b>{{'timings' | language}}</b></h5></div>
+                            <div class="row">
+                                <span class="col-5">{{'date' | language}} :</span> <span class="m-l-5 col-6">{{util.getHumanShortDate(data.getOrder().date)}}</span>
+                            </div>
+                            <div class="row">
+                                <span class="col-5">{{'timeF' |language}} :</span><span class="m-l-5 col-6">{{data.getOrder().from}}</span>
+                            </div>
+                            <div class="row">
+                                <span class="col-5">{{'timeT' | language}} :</span><span class="m-l-5 col-6">{{data.getOrder().till}}</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </mat-card>
+    </div>
+
+    <div>
+        <mat-card *ngIf="data.flow === 2 && data.getOrder().pickup" class="mat-elevation-z2 border-radius m-1">
+            <div><h5><b>{{'parcelDetail' | language}}</b></h5></div>
+
+            <div class="dis-flex justify-content-between"><span>{{'parcelid' | language}}:</span> <span>{{data.getOrder().pickup.packetId || ''}}</span></div>
+            <div class="dis-flex justify-content-between"><span>{{'postoffice' | language}}:</span> <span>{{data.getOrder().pickup.post_service || ''}}</span></div>
+        </mat-card>
+    </div>
+
+    <div>
+        <mat-card class="mat-elevation-z2 border-radius m-1">
+
+            <div>
+                <div>
+                    <div class="row">
+                        <div class="col">
+                            <div><h5><b>{{'transportDetail' | language}}</b></h5></div>
+                            <div class="row">
+                                <span class="col-6">{{'totalP' | language }}</span> <span class="m-l-5 col-5">{{data.peopleData? data.peopleData.name: ''}}</span>
+                            </div>
+                            <div class="row">
+                                <span class="col-6">{{'peopleCharge' | language}} :</span><span class="m-l-5 col-5">{{data.peopleData ? (data.peopleData.value|currency:'EUR': true) : ''}}</span>
+                            </div>
+                            <div class="row">
+                                <span class="col-6">{{'choosenVehicle' | language}} :</span><span class="m-l-5 col-5">{{data.vehicle? data.vehicle.name : ''}}</span>
+                            </div>
+                            <div class="row">
+                                <span class="col-6">{{'vehicleCharge' | language}} :</span><span class="m-l-5 col-5">{{data.vehicleCharge ? (data.vehicleCharge.toFixed(2)| currency:'EUR' : true) : 0 }}</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </mat-card>
+    </div>
+
+
+    <h5 class="m-t-30 m-b-30">{{'promotionDis' | language}}</h5>
+    <div class="dis-flex m-b-30">
+        <div class="flex-grow-1">
+            <mat-card><input [(ngModel)]="data.couponInput" #coupon minlength="5" matInput type="text" [disabled]="data.couponApplied" placeholder="{{'addDisPromo' | language}}"></mat-card>
+        </div>
+        <div class="align-self-center">
+            <button  (click)="data.couponApplied ? removeCoupon() :  applyCoupon(coupon.value.toLowerCase())" class="apply-btn" mat-raised-button>
+                {{data.couponApplied ?  translation.getLang() === 'en' ? 'Remove' : 'Poista' : translation.getLang() === 'en' ? 'Apply' : 'Käytä'}}
+            </button></div>
+    </div>
+    <p class="m-t-5" *ngIf="data.couponApplied">{{'notabledetails' | language}}</p>
+
+    <div class="row text-black-50">
+        <div class="col-9">
+            <p>{{'totalDis' | language}}</p>
+        </div>
+        <div class="col-3">
+            <p class="text-end">{{data.getOrder().distance}} KM</p>
+        </div>
+    </div>
+    <div class="row text-black-50" >
+        <div class="col-9">
+            <p>{{'costPK' | language}}</p>
+        </div>
+        <div class="col-3">
+            <p class="text-end">{{data.getOrder().distance > 0 ? (((data.getOrder().total/data.getOrder().distance).toFixed(2) )| currency: 'EUR': true) : data.getOrder().total}}</p>
+        </div>
+    </div>
+    <div class="row text-black-50" *ngFor="let charge of data.getOrder().charges">
+        <div class="col-9">
+            <p>{{charge.title}}</p>
+        </div>
+        <div class="col-3">
+            <p class="text-end">{{charge.value| currency:'EUR':true}}</p>
+        </div>
+    </div>
+    <hr>
+    <div class="row text-black-50">
+        <div class="col-9">
+            <p style="color: #F89142">{{'total' | language}}</p>
+        </div>
+        <div class="col-3">
+            <p class="text-end" style="color: #F89142">{{data.getOrder().total | currency:'EUR':true}}</p>
+        </div>
+    </div>
+    <div class="pay_btn text-center">
+<!--        <button (click)="getOrderData()">Order data</button>-->
+        <button (click)="data.skip? skipStripePlaceOrder() : startStripe()"  class="payment_btn" mat-raised-button>{{'continuePay' | language}}</button>
+    </div>
+</div>

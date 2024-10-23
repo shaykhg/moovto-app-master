@@ -1,0 +1,40 @@
+<ion-toolbar>
+    <div class="dis-flex justify-content-between">
+            <span  class="align-self-center">
+                <ion-title >{{'parcelDeliver' | language}}</ion-title>
+            </span>
+        <span>
+  <ion-icon  (click)="util.showWarning(1)"  class="fs-24 m-r-10" name="close"></ion-icon>
+
+            </span>
+    </div>
+</ion-toolbar>
+
+<ion-content>
+    <div class="text_sugg mb-0 pb-0">
+        <p class="text-black-50">{{'startbytackingArrivesms' | language}}</p>
+    </div>
+    <mat-tab-group [(selectedIndex)]="data.parcelDelTabIndex" >
+        <mat-tab label="1. {{'parcelDetail' | language}}" [disabled]="data.parcelDelTab[0]">
+            <app-take-picture></app-take-picture>
+
+        </mat-tab>
+
+        <mat-tab label="2. Nouto-osoite" [disabled]="data.parcelDelTab[1]">
+            <app-address></app-address>
+        </mat-tab>
+
+        <mat-tab label="3. {{'yourDetail' | language}}" [disabled]="data.parcelDelTab[2]">
+            <app-parcel-del-drop></app-parcel-del-drop>
+        </mat-tab>
+
+        <mat-tab label="4. {{'schedulePic' | language}}" [disabled]="data.parcelDelTab[3]">
+            <app-time-schedule></app-time-schedule>-
+
+        </mat-tab>
+
+        <mat-tab label="Step 5 - {{'payment' | language}}" [disabled]="data.parcelDelTab[4]">
+            <app-checkout></app-checkout>
+        </mat-tab>
+    </mat-tab-group>
+</ion-content>

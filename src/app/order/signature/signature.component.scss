@@ -1,0 +1,17 @@
+.myCanvas{
+  width: 100%;
+}
+.canvas_btn{
+  background-color: #F89142;
+  color: #fff;
+  border-radius: 15px;
+  padding: 6px 0;
+  width: 100%;
+}
+.canvas_btn:disabled{
+  background-color: #debba5;
+  color: #fff;
+  border-radius: 15px;
+  padding: 6px 0;
+  width: 100%;
+}

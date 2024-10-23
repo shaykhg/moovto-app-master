@@ -1,0 +1,91 @@
+.container{
+	font-family: Nunito,sans-serif;
+}
+
+.del_history {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 2rem;
+}
+
+.delv_icon {
+	width: 26px;
+	height: 26px;
+}
+
+.main {
+	margin: 5rem auto;
+	padding: 2.5rem;
+	opacity: 0.5;
+
+	p {
+		text-align: center;
+		opacity: 0.5;
+	}
+}
+
+.delvieries_history {
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+
+	img {
+		opacity: 0.5;
+	}
+
+	.history_icon {
+		width: 37px;
+		height: 36px;
+		// margin-right: 5rem;
+		background-color: #d9d7d7;
+		padding: 5px 7px;
+		border-radius: 50%;
+	}
+	.history_msg {
+		display: flex;
+		flex-direction: column;
+		margin-bottom: 1rem;
+		margin-right: 8rem;
+		font-size: 0.8rem;
+		margin-left: 1rem;
+		p {
+			margin: 0;
+			opacity: 0.5;
+		}
+		h3 {
+			font-size: 16px;
+			margin-bottom: 6px;
+		}
+	}
+
+	.history_ico {
+		width: 19px;
+		height: 19px;
+		// margin-left: 5rem;
+
+		.arrow {
+			transform: rotate(180deg);
+		}
+	}
+}
+
+.deliveries {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 2rem;
+	opacity: 0.5;
+}
+
+
+// ____________
+
+.hist_icon{
+	height: 42px;
+    margin: 20px 10px;
+}
+
+.notes{
+	opacity: 0.5;
+}

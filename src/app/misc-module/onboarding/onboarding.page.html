@@ -1,0 +1,48 @@
+<ion-content class="ion-padding" fullscreen scroll-y="false">
+    <ion-slides [options]="slideOpts"  #slides>
+
+        <ion-slide>
+            <div class="slide">
+                <img class="img-90" src="/assets/onboarding2/assistancewithwork.png"/>
+                <h2>Avustus muutossa</h2>
+                    <div class="slide-desc">
+                        Valitse kuinka monta henkilöä tarvitset avuksi muutossasi. Autamme painavien tavaroiden kantamisessa
+                    </div>
+            </div>
+            <button mat-stroked-button class="next-btn" (click)="slides.slideNext()">Seuraava</button>
+
+        </ion-slide>
+
+        <ion-slide>
+            <img  class="img-90" src="/assets/onboarding2/updated2.png"/>
+            <h2>Sinulle soipiva toimitusaika</h2>
+            <div class="slide-desc">
+                Toimitamme myös iltaisin ja viikonloppuisin. Valitse mikä tahansa aikaikkuna jolloin olet kotona.
+            </div>
+            <button mat-stroked-button class="next-btn" (click)="slides.slideNext()">Seuraava</button>
+            <button mat-stroked-button class="prev-btn" (click)="slides.slidePrev()">Takaisin</button>
+
+        </ion-slide>
+
+        <ion-slide>
+            <img class="img-90" alt="" src="/assets/onboarding3/updated.png"/>
+            <h2>Maksu toimituksen jälkeen.</h2>
+                <div class="slide-desc">
+                    Et maksa mitään tilausta tehdessäsi. Laskutamme vasta toimituksen jälkeen.
+                </div>
+                        <div class="btn">
+                            <button (click)="nextPage(1)" class="text-white m-t-20 m-b-20 create-acc">Luo tili</button>
+
+                            <p class="mt-3 m-t-20 m-b-20">Oletko luonut jo tilin? <a class="text-decoration-none " (click)="nextPage(2)"
+                                                                        style="color: #F89142;">Kirjaudu sisään</a></p>
+
+                            <a (click)="nextPage(3)" style="text-decoration: none;color: #F89142;text-align: center">Tai ohita toistaiseksi</a>
+
+                        </div>
+            <button mat-stroked-button class="prev-btn" (click)="slides.slidePrev()">Takaisin</button>
+
+        </ion-slide>
+
+
+    </ion-slides>
+</ion-content>

@@ -1,0 +1,75 @@
+.container-fluid{
+  font-family: sf , serif;
+}
+
+
+.bottom {
+  background-color: #ffffff;
+  bottom: 10px;
+  height: 70% !important;
+  border-top-left-radius: 45px;
+  border-top-right-radius: 45px;
+}
+
+.user_log {
+  background-color: #d3d2d2;
+  opacity: 0.5;
+  border: none;
+  outline: none !important;
+  border-radius: 10px;
+  padding: 15px;
+  margin: 10px;
+  // width: 100%;
+}
+
+.social_icon {
+  height: 70px;
+  box-shadow: 0px 3px 9px #00000047;
+  border-radius: 50%;
+  padding: 0.8rem;
+}
+
+.signup_btn{
+  background-color: #F89142;
+  color: #fff;
+  border-radius: 15px;
+  padding: 8px 113px;
+  font-size: 17px;
+  margin-bottom: 14px;
+}
+
+.or {
+  border: 0.1px solid rgba(0, 0, 0, 0.2);
+  width: 70%;
+  text-align: center;
+  line-height: 0em;
+  margin:10px 62px 20px;
+
+  span {
+    background: #fff;
+    padding: 0 5px;
+  }
+}
+
+.check_box{
+  margin-left: 17px;
+}
+.forget_password{
+  margin-left: 22px;
+}
+
+.padding-3{
+  padding: 1.5rem 3rem 20px 3rem;
+}
+.padding-4{
+  padding: 1.5rem 1.5rem 20px 3rem;
+}
+
+.login-btn{
+  background: white;
+  color: #F89142;
+}
+
+.heading-pad{
+  padding: 15px;
+}

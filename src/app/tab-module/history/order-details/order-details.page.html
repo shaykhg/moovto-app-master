@@ -1,0 +1,310 @@
+<ion-header>
+  <ion-toolbar>
+    <div class="dis-flex justify-content-between">
+            <span  class="align-self-center">
+                <ion-title>{{'orderDetail' | language}}  </ion-title>
+            </span>
+      <span>
+        <ion-icon routerLink="/tabs/history" class="fs-24 m-r-10" name="close"></ion-icon>
+      </span>
+    </div>
+  </ion-toolbar>
+
+
+</ion-header>
+
+<ion-content>
+
+
+  <div class="container p-3" *ngIf="orders">
+    <div class="pe-4">
+      <p class="notes mb-1 fw-bold">{{'orderID' | language}} </p>
+      <h3 class="fs-6 " (click)="copy(orders.id)">{{orders.id}} <span><ion-icon name="copy-outline"></ion-icon></span> </h3>
+    </div>
+
+    <mat-card>
+      <div class="row">
+        <div class="col-2" style="margin-top: 18px;">
+            <img src="assets/deliveryhistory/details/name.png" alt="" class="hist_icon" />
+        </div>
+        <div class="col-4">
+          <p class="mt-2 fs-6 mb-1" style="opacity: 0.5;">{{'name' | language}}</p>
+          <h3 class="fs-6">{{orders.user.name}} </h3>
+        </div>
+        <div class="col-2" style="amargin-top: 18px;">
+          <img src="assets/deliveryhistory/details/euro.png" alt="" class="hist_icon" />
+        </div>
+        <div class="col-4">
+          <p class="mt-2 fs-6 mb-1" style="opacity: 0.5;">{{'total' | language}}</p>
+          <h3 class="fs-6">{{orders.total | currency:'EUR' : true}}</h3>
+        </div>
+      </div>
+
+      <div class="row mt-3">
+
+        <div class="col-2" style="margin-top: 18px;">
+          <img src="assets/deliveryhistory/details/status.png" alt="" class="hist_icon" />
+
+        </div>
+        <div class="col-4">
+          <p class="mt-2 fs-6 mb-1" style="opacity: 0.5;">{{'status' | language}}</p>
+          <h3 class="fs-6">
+            {{orders.status}}
+          </h3>
+        </div>
+        <div class="col-2" style="margin-top: 18px;">
+          <img src="assets/deliveryhistory/details/map.png" alt="" class="hist_icon" />
+        </div>
+        <div class="col-4">
+          <p class="mt-2 fs-6 mb-1" style="opacity: 0.5;">{{'distance' | language}}</p>
+          <h3 class="fs-6">{{orders.distance}} km </h3>
+        </div>
+      </div>
+
+      <div  *ngIf="orders.packetId ? orders.packetId.length > 0 : false" class="row mt-3">
+
+        <div class="col-2" style="margin-top: 18px;">
+          <img src="assets/deliveryhistory/details/wrapping.png" alt="" class="hist_icon" />
+
+        </div>
+        <div class="col-4">
+          <p class="mt-2 fs-6 mb-1" style="opacity: 0.5;">{{'packetId' | language}}</p>
+          <h3 class="fs-6">
+            {{orders.packetId}}
+          </h3>
+        </div>
+
+<!--        <div class="col-2" style="margin-top: 18px;">-->
+<!--&lt;!&ndash;          <img src="assets/deliveryhistory/details/map.png" alt="" class="hist_icon" />&ndash;&gt;-->
+<!--        </div>-->
+<!--        <div class="col-4">-->
+<!--&lt;!&ndash;          <p class="mt-2 fs-6 mb-1" style="opacity: 0.5;">Distance</p>&ndash;&gt;-->
+<!--&lt;!&ndash;          <h3 class="fs-6">{{orders.distance}} km </h3>&ndash;&gt;-->
+<!--        </div>-->
+      </div>
+
+      <div  *ngIf="orders.post_service ? orders.post_service.length > 0 : false" class="row mt-3">
+        <div class="col-2" style="margin-top: 18px;">
+          <img src="assets/deliveryhistory/details/postbox.png" alt="" class="hist_icon" />
+        </div>
+        <div class="col-10">
+          <p class="mt-2 fs-6 mb-1" style="opacity: 0.5;">{{'postService' | language}}</p>
+          <h3 class="fs-6">
+            {{orders.post_service}}
+          </h3>
+        </div>
+      </div>
+    </mat-card>
+
+    <mat-card class="m-t-10">
+      <div class="row" >
+        <div class="col-2" style="margin-top: 18px;">
+          <img src="assets/deliveryhistory/details/vehicle.png" alt="" class="hist_icon" />
+        </div>
+        <div class="col-4">
+          <p class="mt-2 fs-6 mb-1" style="opacity: 0.5;">{{'vehicle' | language}}</p>
+          <h3 class="fs-6">{{orders.vehicle.name}}</h3>
+        </div>
+
+        <div class="col-2" style="margin-top: 18px;">
+          <img src="assets/deliveryhistory/details/People.png" alt="" class="hist_icon" />
+        </div>
+        <div class="col-4">
+          <p class="mt-2 fs-6 mb-1" style="opacity: 0.5;">{{'people' | language}}</p>
+          <h3 class="fs-6">{{orders.people}} {{'person' | language}}</h3>
+        </div>
+
+      </div>
+
+      <div class="row" >
+
+
+
+        <div class="col-2" style="margin-top: 18px;">
+          <img src="assets/deliveryhistory/details/Date.png" alt="" class="hist_icon" />
+        </div>
+        <div class="col-4">
+
+          <p class="mt-2 fs-6 mb-1" style="opacity: 0.5;">{{'date' | language}}</p>
+          <h3 class="fs-6">{{util.getHumanShortDate(orders.date)}}</h3>
+
+        </div>
+
+        <div class="col-2" style="margin-top: 18px;">
+          <img src="assets/deliveryhistory/details/clock.png" alt="" class="hist_icon" />
+        </div>
+        <div class="col-4">
+
+          <p class="mt-2 fs-6 mb-1" style="opacity: 0.5;">{{'time' | language}}</p>
+          <h3 class="fs-6">{{util.returnTime(orders.from)}} - {{util.returnTime(orders.till)}}</h3>
+
+        </div>
+
+      </div>
+
+
+    </mat-card>
+
+
+    <mat-card class="m-t-10">
+  <h5>Pickup Details</h5>
+  <div class="row" >
+    <div class="col-2" style="margin-top: 18px;">
+      <img src="assets/deliveryhistory/details/name.png" alt="" class="hist_icon" />
+    </div>
+    <div class="col-10">
+      <p class="mt-2 fs-6 mb-1" style="opacity: 0.5;">{{'name' | language}}</p>
+      <h3 class="fs-6">{{orders.pickup.name}}</h3>
+    </div>
+  </div>
+  <div class="row" >
+    <div class="col-2" style="margin-top: 18px;">
+      <img src="assets/deliveryhistory/details/phone-call.png" alt="" class="hist_icon" />
+    </div>
+    <div class="col-10">
+      <p class="mt-2 fs-6 mb-1" style="opacity: 0.5;">{{'phone' | language}}</p>
+      <h3 class="fs-6">{{orders.pickup.phone}}</h3>
+    </div>
+  </div>
+  <div class="row" >
+    <div class="col-2" style="margin-top: 18px;">
+      <img src="assets/deliveryhistory/details/loc.png" alt="" class="hist_icon" />
+    </div>
+    <div class="col-10">
+      <p class="mt-2 fs-6 mb-1" style="opacity: 0.5;">   {{'pickupLocation' | language}}</p>
+      <h3 class="fs-6">{{orders.pickup.googleLoc}}</h3>
+    </div>
+  </div>
+
+
+  <div class="row m-t-10" >
+    <div class="col-2" style="margin-top: 18px;">
+      <img src="assets/deliveryhistory/details/luggage-cart.png" alt="" class="hist_icon" />
+    </div>
+    <div class="col-10">
+      <p class="mt-2 fs-6 mb-1" style="opacity: 0.5;">{{'pickAdd' | language}}</p>
+      <h3 class="fs-6">{{orders.pickup.doorCode}}, {{orders.pickup.building }}, {{orders.pickup.street}}, {{orders.pickup.city}} - {{orders.pickup.postCode}}</h3>
+    </div>
+  </div>
+  <div class="row mt-3">
+
+    <div class="col-2">
+      <img src="assets/deliveryhistory/details/notes.png" alt="" class="hist_icon" />
+
+    </div>
+    <div class="col">
+      <p class="mt-2 fs-6 mb-1" style="opacity: 0.5;">{{'pickupNotes' | language}}</p>
+      <h3 class="fs-6" *ngIf="orders.pickup.noteForRider">
+        {{orders.pickup.noteForRider}}
+      </h3>
+    </div>
+
+
+    <div class="col-2" style="margin-top: 18px;">
+    </div>
+    <div class="col-4">
+
+    </div>
+  </div>
+
+  <hr>
+
+  <h5>{{'dropAdd' | language}}</h5>
+  <div class="row">
+    <div class="col-2" style="margin-top: 18px;">
+      <img src="assets/deliveryhistory/details/name.png" alt="" class="hist_icon" />
+    </div>
+    <div class="col-10">
+      <p class="mt-2 fs-6 mb-1" style="opacity: 0.5;">{{'name' | language}}</p>
+      <h3 class="fs-6">{{orders.drop.name}}</h3>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-2" style="margin-top: 18px;">
+      <img src="assets/deliveryhistory/details/phone-call.png" alt="" class="hist_icon" />
+    </div>
+    <div class="col-10">
+      <p class="mt-2 fs-6 mb-1" style="opacity: 0.5;">{{'phone' | language}}</p>
+      <h3 class="fs-6">{{orders.drop.phone}}</h3>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-2" style="margin-top: 18px;">
+      <img src="assets/deliveryhistory/details/loc.png" alt="" class="hist_icon" />
+    </div>
+    <div class="col-10">
+      <p class="mt-2 fs-6 mb-1" style="opacity: 0.5;">{{'deliveryLocation' | language}}</p>
+      <h3 class="fs-6">{{orders.drop.googleLoc}}</h3>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-2" style="margin-top: 18px;">
+      <img src="assets/deliveryhistory/details/truck.png" alt="" class="hist_icon" />
+    </div>
+    <div class="col-10">
+      <p class="mt-2 fs-6 mb-1" style="opacity: 0.5;">{{'deliveryAddress' | language}}</p>
+      <h3 class="fs-6">{{orders.drop.doorCode}}, {{orders.drop.building }}, {{orders.drop.street}}, {{orders.drop.city}} - {{orders.drop.postCode}}</h3>
+    </div>
+  </div>
+  <div class="row mt-3">
+
+    <div class="col-2 " style="margin-top: 18px;">
+      <img src="assets/deliveryhistory/details/notes.png" alt="" class="hist_icon" />
+
+    </div>
+    <div class="col">
+      <p class="mt-2 fs-6 mb-1" style="opacity: 0.5;">{{'deliveryNotes' | language}}  </p>
+      <h3 class="fs-6" *ngIf="orders.drop.noteForRider">
+        {{orders.drop.noteForRider}}
+      </h3>
+    </div>
+
+  </div>
+</mat-card>
+
+    <div>
+        <div class="row p-t-15" *ngIf="orders.type === '2'">
+          <div class="col">
+            <mat-label>{{'sign' | language}}</mat-label>
+
+            <mat-card class="upld-img-card">
+              <img [src]="orders.signImage" alt="" style="width: 100%">
+            </mat-card>
+          </div>
+          <div class="col">
+            <mat-label>{{'parcelImage' | language}}</mat-label>
+            <mat-card class="upld-img-card">
+              <img [src]="orders.parcelImage" alt="" style="width: 100%">
+            </mat-card>
+          </div>
+        </div>
+    </div>
+
+    <mat-accordion>
+      <mat-expansion-panel class="border-radius items" style="margin-top: 10px" *ngFor="let item of orders.items">
+        <mat-expansion-panel-header class="mat-exp-header">
+          <mat-panel-title>
+            <h5>{{item.name}}</h5>
+          </mat-panel-title>
+          <mat-panel-description>
+          </mat-panel-description>
+        </mat-expansion-panel-header>
+        <div>
+          <div  style="margin-top: 25px">
+            <div class="row"><span class="col-5 fs-18">{{'quantity' | language}}:</span> <span class="col-6 fs-18">{{item.quantity}}</span></div>
+            <div class="row"><span class="col-5 fs-18">{{'weight' | language}}:</span>
+              <span class="col-7 fs-18">{{item.weightType === 'kg' ? item.weight + ' kg' : item.weight + ' lbs'}}</span>
+            </div>
+            <div class="row"><span class="col-5 fs-18">{{'height' | language}}:</span> <span class="col-6 fs-18">{{item.height + ' cm'}}</span></div>
+            <div class="row"><span class="col-5 fs-18">{{'width' | language}}:</span> <span class="col-6 fs-18">{{item.width + ' cm'}}</span></div>
+            <div class="row"><span class="col-5 fs-18">{{'length' | language}}:</span> <span class="col-6 fs-18">{{item.length + ' cm'}}</span></div>
+            <div class="row"><span class="col-5 fs-18">{{'desc' | language}}:</span> <span class="col-6 fs-18">{{item.description}}</span></div>
+          </div>
+        </div>
+      </mat-expansion-panel>
+    </mat-accordion>
+
+  </div>
+
+</ion-content>

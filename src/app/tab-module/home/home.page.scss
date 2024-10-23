@@ -1,0 +1,117 @@
+.top {
+	width: 100%;
+	height: 455px;
+	background-color: #f89142;
+	border-bottom-left-radius: 95px;
+	border-bottom-right-radius: 95px;
+	position: relative;
+
+	.info {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		flex-direction: column;
+		color: #fff;
+
+	.work{
+		font-family: 'Nunito', sans-serif;
+	}
+
+		h1 {
+			margin-top: 2.5rem;
+			font-size: 1.46rem;
+			margin-bottom: 0;
+		}
+
+		p {
+			font-size: 0.8rem;
+			//margin-bottom: 2rem;
+		}
+		.input_field {
+			background-color: #fff;
+			display: flex;
+			border-radius: 15px;
+			padding: 0.8rem;
+			width: 20rem;
+			margin-bottom: 2rem;
+
+			.order_input {
+				background-color: transparent;
+				font-size: 0.7rem;
+				border: none!important;
+				outline: none!important;
+			}
+		}
+		.icon {
+			width: 26px;
+			height: 26px;
+			margin-right: 1rem;
+		}
+	}
+
+	.hand_img {
+		width: 167px;
+		height: 200px;
+		position: absolute;
+		bottom: 0;
+		left: 122px;
+	}
+}
+
+.bottom {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: flex-start;
+	padding: 1rem;
+
+	.bottom_div {
+		background-color: #f6f6fa;
+		width: 100%;
+		margin-bottom: 2rem;
+		padding: 1rem;
+		display: flex;
+		flex-direction: column;
+		border-radius: 15px;
+		transition: 0.3ms ease-in;
+		img {
+			height: 116px;
+			margin: auto;
+		}
+		span {
+			color: rgba(0, 0, 0, 0.5);
+			font-size: 0.7rem;
+		}
+		.order_btn{
+			background-color: #F89142;
+			color: #fff;
+			border-radius: 26px;
+			padding: 1px 33px;
+		}
+
+		.option {
+			.option_div {
+				margin: 2.5rem 0;
+				display: flex;
+
+				div {
+					text-decoration: none;
+					margin-left: 2rem;
+					color: #000;
+				}
+				span .num{
+					border-radius: 50%;
+					background-color: #f89142;
+					padding: 10px 14px;
+					color: #f6f6fa;
+				}
+			}
+		}
+	}
+}
+
+.search-btn{
+	border: 1px solid #f89142;
+	color: #f89142;
+	margin-left: 5px;
+}

@@ -1,0 +1,140 @@
+<ng-template matStepLabel>{{'steppickupdetails' | language}}</ng-template>
+<mat-card class="m-16" style="border-radius: 15px">
+  <h3 class="fs-5 mb-4 ms-3">{{'yHomeaddress' | language}}</h3>
+  <form [formGroup]="pickUpAddress">
+
+    <div style="padding: 7px 14px;">
+      
+      <div class="row mt-1">
+        <div >
+          <mat-form-field style="width:100%">
+            <mat-label class=" text-black-50">{{'recieverName' | language}}</mat-label>
+            <input
+                    formControlName="name"
+                    matInput
+                    type="text"
+                    required
+            />
+            <mat-error>{{'thisfieldMandatory' | language}}</mat-error>
+          </mat-form-field>
+        </div>
+        <div >
+          <mat-form-field style="width:100%">
+            <mat-label class=" text-black-50">{{'RecieverPhone' | language}}</mat-label>
+            <input
+                    formControlName="phone"
+                    matInput
+                    type="tel"
+                    minlength="10"
+                    maxlength="10"
+                    required
+                    placeholder="9876543210"
+            />
+            <mat-error>{{'thisfieldMandatory' | language}}</mat-error>
+          </mat-form-field>
+        </div>
+      </div>
+
+      <div class="row mt-1">
+
+        <div >
+          <mat-form-field style="width:100%">
+            <mat-label class="text-black-50 ">{{'searchStreet' | language}}</mat-label>
+            <input
+                    #pickupTerm
+                    (input)="handleSearch(pickupTerm.value, 1)"
+                    [ngModelOptions]="{standalone: true}"
+                    [(ngModel)]="placeNamePickup"
+                    matInput
+                    type="text"
+            />
+            <mat-error>{{'thisfieldMandatory' | language}}</mat-error>
+            <div id="autoBalloon">
+              <mat-card class="m-16" *ngIf="resultsPick.length > 0">
+                <div (click)="setPickUpAddress(place)" *ngFor="let place of resultsPick"
+                     class="t-left autocomplete-row">
+                  <p>{{place.description}}</p>
+                  <hr>
+                </div>
+              </mat-card>
+            </div>
+          </mat-form-field>
+
+          <mat-form-field style="width:100%">
+            <mat-label class=" text-black-50">{{'streetBUilding' | language}}</mat-label>
+            <input
+                    formControlName="building"
+                    matInput
+                    type="text"
+                    required
+                    placeholder="{{'StreetBuildApartment' | language}}"
+
+            />
+            <mat-error>{{'thisfieldMandatory' | language}}</mat-error>
+          </mat-form-field>
+        </div>
+        <div>
+          <mat-form-field style="width:100%">
+            <mat-label class=" text-black-50">{{'doorCode' | language}}</mat-label>
+            <input
+                    formControlName="doorCode"
+                    matInput
+                    type="text"
+            />
+            <mat-error>{{'thisfieldMandatory' | language}}</mat-error>
+          </mat-form-field>
+        </div>
+      </div>
+      
+<!--      <div class="row mt-1">-->
+<!--        <div >-->
+<!--          <mat-form-field style="width:100%">-->
+<!--            <mat-label class=" text-black-50">Street</mat-label>-->
+<!--            <input-->
+<!--                    formControlName="street"-->
+<!--                    matInput-->
+<!--                    type="text"-->
+<!--                    required-->
+<!--            />-->
+<!--            <mat-error>This Field Is Mandatory</mat-error>-->
+<!--          </mat-form-field>-->
+<!--        </div>-->
+<!--        <div >-->
+<!--          <mat-form-field style="width:100%">-->
+<!--            <mat-label class=" text-black-50">City</mat-label>-->
+<!--            <input-->
+<!--                    formControlName="city"-->
+<!--                    matInput-->
+<!--                    type="text"-->
+<!--                    required-->
+<!--            />-->
+<!--            <mat-error>This Field Is Mandatory</mat-error>-->
+<!--          </mat-form-field>-->
+<!--        </div>-->
+<!--      </div>-->
+      
+      <div class="row mt-1">
+        <div >
+          <mat-form-field style="width:100%">
+            <mat-label class=" text-black-50">{{'postCode' | language}}</mat-label>
+            <input
+                    formControlName="postCode"
+                    matInput
+                    type="text"
+                    minlength="5"
+                    maxlength="5"
+                    required
+            />
+            <mat-error>{{'thisfieldMandatory' | language}}</mat-error>
+          </mat-form-field>
+        </div>
+        <!--                        <div class="col-6 p-2"></div>-->
+      </div>
+
+    </div>
+
+  </form>
+</mat-card>
+<div class="sub_btn ">
+  <button (click)="pickup()" class="conti_btn" mat-button [disabled]="!pickUpAddress.valid"> {{'continue' | language}}</button>
+</div>

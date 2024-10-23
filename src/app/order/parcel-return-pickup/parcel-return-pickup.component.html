@@ -1,0 +1,57 @@
+<ng-template matStepLabel>{{'stepSchedulepickup' | language}}</ng-template>
+<div class="mb-5">
+  {{date}}
+</div>
+
+<div>
+  <p class="mb-0">{{'selectT' | language}}</p>
+  <span class="text-black-50">{{'twoOptionPIckup' | language}}</span>
+  <div>
+    <form [formGroup]="getTimeDate">
+      <mat-form-field appearance="outline" class="w-100">
+        <mat-label>Date</mat-label>
+        <input formControlName="pickDate" matInput type="date">
+        <mat-error>{{'thisfieldMandatory' | language}}</mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" class="w-100">
+        <mat-label>{{'chooseFTime' | language}}</mat-label>
+        <input [ngxTimepicker]="picker" formControlName="time" matInput>
+        <mat-error>{{'thisfieldMandatory' | language}}</mat-error>
+        <ngx-material-timepicker #picker></ngx-material-timepicker>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" class="w-100">
+        <mat-label>{{'tillTime' | language}}</mat-label>
+        <input [ngxTimepicker]="pick" formControlName="tillTime" matInput>
+        <mat-error>{{'thisfieldMandatory' | language}}</mat-error>
+        <ngx-material-timepicker #pick></ngx-material-timepicker>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" class="w-100">
+        <mat-label>{{'date' | language}}</mat-label>
+        <input formControlName="dropDate" matInput type="date">
+        <mat-error>{{'thisfieldMandatory' | language}}</mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" class="w-100">
+        <mat-label>{{'chooseFTime' | language}}</mat-label>
+        <input [ngxTimepicker]="pickers" formControlName="dropTime" matInput>
+        <ngx-material-timepicker #pickers></ngx-material-timepicker>
+        <mat-error>{{'thisfieldMandatory' | language}}</mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" class="w-100">
+        <mat-label>{{'tillTime' | language}}</mat-label>
+        <input [ngxTimepicker]="picke" formControlName="dropTillTime" matInput>
+        <ngx-material-timepicker #picke></ngx-material-timepicker>
+        <mat-error>{{'thisfieldMandatory' | language}}</mat-error>
+      </mat-form-field>
+
+      <div class="dlivery_btn text-center">
+        <button (click)="dateTime()" class="btn_delv" mat-button>{{'goDelivery' | language}}</button>
+      </div>
+
+    </form>
+  </div>
+</div>

@@ -1,0 +1,75 @@
+<div class="container">
+
+  <div class="p-t-12 p-b-12">
+    <h3>{{'selectDate' | language}}</h3>
+    <div class="m-t-12">
+      <form [formGroup]="timeForm" (ngSubmit)="goNext()">
+        <mat-form-field appearance="outline" class="w-100">
+          <mat-label>{{'date' | language}}</mat-label>
+          <input readonly [min]="currentDate" matInput [matDatepicker]="dp3" formControlName="date">
+          <mat-datepicker-toggle matSuffix [for]="dp3"></mat-datepicker-toggle>
+          <mat-datepicker #dp3></mat-datepicker>
+          <mat-error>{{'enterCorrDetail' | language}}</mat-error>
+        </mat-form-field>
+
+<!--        <mat-form-field appearance="outline" class="w-100">-->
+<!--          <mat-label>{{'chooseFTime' | language}}</mat-label>-->
+<!--          <input [format]="24" [ngxTimepicker]="from" matInput formControlName="from" readonly>-->
+<!--          <ngx-material-timepicker  [theme]="clockTheme" #from></ngx-material-timepicker>-->
+<!--          <mat-error>{{'entercorrectTime' | language}}</mat-error>-->
+<!--        </mat-form-field>-->
+
+<!--        <mat-form-field appearance="outline" class="w-100">-->
+<!--          <mat-label>{{'tillTime' | language}}</mat-label>-->
+<!--          <input [format]="24" [disabled]="true" [ngxTimepicker]="till" matInput formControlName="till">-->
+<!--          <ngx-material-timepicker [theme]="clockTheme" #till></ngx-material-timepicker>-->
+<!--          <mat-error>{{'entercorrectTilltime' | language}}</mat-error>-->
+<!--        </mat-form-field>-->
+
+        <ion-item class="mat-border">
+          <ion-label>{{'Ftime' | language}}</ion-label>
+          <ion-datetime displayFormat="HH:mm" formControlName="from"></ion-datetime>
+        </ion-item>
+
+          <div class="guide-hint m-t-25 m-l-15"   tooltip="{{'automaticChoosedeliverySlot' | language}}" placement="top">{{'whytillTdisabled' | language}}?🕐</div>
+
+          <ion-item class="mat-border">
+          <ion-label>{{'tillTime' | language}}</ion-label>
+          <ion-datetime disabled displayFormat="HH:mm" formControlName="till"></ion-datetime>
+        </ion-item>
+
+          <div *ngIf="data.flow === 1" class="guide-hint m-t-25 m-l-15"   tooltip="{{'driverTohelpyou' | language}}" placement="top">{{'howmanypersonIchoose' | language}}?👥 </div>
+
+        <mat-form-field appearance="outline" class="w-100">
+          <mat-label>{{'noPeople' | language}}</mat-label>
+          <mat-select [disabled]="this.data.flow === 2" (selectionChange)="changePeople($event.value)" formControlName="people">
+            <mat-option *ngFor="let people of peoples" [value]="people">
+<!--            <mat-option [disabled]="this.data.flow === 1 ? false : (people.name !== '1 Person')" *ngFor="let people of peoples" [value]="people">-->
+              {{people.name}} &euro;{{people.value}}
+            </mat-option>
+
+          </mat-select>
+          <mat-error>{{'choosenumPeople' | language}}</mat-error>
+
+        </mat-form-field>
+
+          <div *ngIf="data.flow === 1" class="guide-hint m-l-15"   tooltip="{{'onfootbicycleLetter' | language}}" placement="top">{{'chooseVehicle' | language}}🚐</div>
+
+        <mat-form-field appearance="outline" class="w-100">
+          <mat-label>{{'transportM' | language}}</mat-label>
+          <mat-select [disabled]="this.data.flow === 2"  (selectionChange) = "changeVehicle($event)" formControlName="vehicle">
+            <mat-option [value]="vehicle" *ngFor="let vehicle of vehicles">{{vehicle.name}}</mat-option>
+<!--            <mat-option [disabled]="this.data.flow === 1 ? false : (vehicle.name !== 'By Foot')" [value]="vehicle" *ngFor="let vehicle of vehicles">{{vehicle.name}}</mat-option>-->
+          </mat-select>
+          <mat-error>{{'choosetransportM' | language}}</mat-error>
+        </mat-form-field>
+
+        <div class="dlivery_btn text-center">
+          <button class="btn_delv" mat-raised-button type="submit" [disabled]="!timeForm.valid">{{'submitD' | language}}</button>
+        </div>
+
+      </form>
+
+    </div>
+  </div>
+</div>

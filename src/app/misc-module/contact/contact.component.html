@@ -1,0 +1,54 @@
+<ion-header>
+    <ion-toolbar>
+        <div class="dis-flex justify-content-between">
+            <span  class="align-self-center">
+                <ion-title>{{'contact' | language}}</ion-title>
+            </span>
+            <span>
+  <ion-icon routerLink="/tabs/profile" class="fs-24 m-r-10" name="close"></ion-icon>
+
+            </span>
+        </div>    </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <div class="container">
+
+        <form [formGroup]="contactForm" (ngSubmit)="submitIssue()">
+            <h4>{{'selectIssue' | language}}</h4>
+            <mat-form-field appearance="outline" class="w-100">
+                <mat-label>{{'selectYissue' | language}}</mat-label>
+                <mat-select formControlName="issue"  required>
+                    <mat-option value="verification">{{'verification' | language}}</mat-option>
+                    <mat-option value="account">{{'account' | language}}</mat-option>
+                    <mat-option value="offers">{{'offers' | language}}</mat-option>
+                    <mat-option value="payment">{{'payment' | language}}</mat-option>
+                    <mat-option value="delivery">{{'delivery' | language}}</mat-option>
+                </mat-select>
+            </mat-form-field>
+
+            <mat-form-field appearance="outline" class="w-100">
+                <mat-label>{{'desProblem' | language}}</mat-label>
+                <textarea formControlName="desc" matInput></textarea>
+            </mat-form-field>
+
+            <div *ngIf="selectedImage" class="text-center">
+                <img [src]="selectedImage" style="width: 256px;height: 256px;border: 1px solid">
+
+            </div>
+
+            <div class="upload-btn-wrapper text-center">
+                <button (click)="selectImageSource()" type="button" class="btn"><img src="assets/contactus/upload.png" alt="" class="btn_image ms-2"> {{'uploadFile' | language}}</button>
+                <span class="text-black-50 " style="font-size: 0.8rem">{{'imgFile' | language}}</span>
+            </div>
+
+            <div class="smit_btn text-center">
+                <button type="submit" [disabled]="!contactForm.valid"   class="btn_smit">{{'submit' | language}}</button>
+            </div>
+
+
+        </form>
+
+
+    </div>
+</ion-content>

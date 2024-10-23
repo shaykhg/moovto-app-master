@@ -1,0 +1,99 @@
+.img_cont_1{
+  background-color: #838FF8;
+  border-radius: 12px;
+  padding: 10px;
+  min-height: 190px;
+  width: 100%;
+  position: relative;
+}
+
+.delivery{
+  font-family: sf ,serif;
+}
+
+.img_cont_2{
+  background-color: #D39AAB;
+}
+
+.btn_submit{
+  background-color: #F78C3A;
+  width: 100%;
+  padding: 10px;
+  color: #fff;
+  font-size: 1rem;
+  border-radius: 15px;
+  margin-top: 16px;
+}
+.btn_cancel{
+  border:1px solid #F78C3A;
+  width: 100%;
+  padding: 10px;
+  color: #F78C3A;
+  font-size: 1rem;
+  border-radius: 15px;
+  margin-top: 16px;
+}
+
+.btn_kl{
+  padding: 20px;
+  border-radius: 15px;
+  margin-left: 15px;
+  text-align: center;
+  border: 1px solid black;
+}
+
+.add-sub-btn {
+    padding: 10px;
+    border-radius: 15px;
+    margin-left: 15px;
+    margin-bottom: 20px;
+
+
+}
+.pickup{
+  border: none;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.205);
+}
+
+.my_card{
+  margin-top: 30px;
+}
+
+.drop_card{
+  margin-top: 30px;
+}
+
+.sub_btn{
+  background-color: #F89142;
+  color: #fff;
+  padding: 11px 6rem;;
+  border-radius: 15px;
+  margin-bottom: 1rem;
+}
+
+.btnBorder{
+  border: 1px solid #F78C3A;
+}
+
+.slider-slides{
+  display: flex;
+  flex-direction: row;
+}
+
+.icon-slide{
+  margin-top: 10px;
+  text-align: left;
+}
+
+.icon-img{
+  width: 48px;
+  height: 48px;
+}
+
+.hint{
+  font-size: 11px;
+  padding: 10px 5px;
+  border: 1px solid orangered;
+  border-radius: 12px;
+  color: orangered;
+}

@@ -1,0 +1,55 @@
+<ion-header>
+    <ion-toolbar>
+        <div class="dis-flex justify-content-between">
+            <span  class="align-self-center">
+                <ion-title >{{'editProfile' | language}}</ion-title>
+            </span>
+            <span>
+  <ion-icon routerLink="/tabs/profile" class="fs-24 m-r-10" name="close"></ion-icon>
+
+            </span>
+        </div>    </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+    <div class="container">
+        <form  [formGroup]="editForm" (ngSubmit)="updateProfile()">
+            <div class="row">
+                <div class="col-6 mt-5" *ngIf="avatar"><img alt="" class="upload_pic p-3" [src]="avatar"></div>
+                <div class="col-6 mt-5" *ngIf="!avatar && selectedImage"><img alt="" class="upload_pic p-3" [src]="selectedImage"></div>
+                <div class="col-6 mt-5">
+                    <div class="upload-btn-wrapper ">
+                        <button type="button"   (click)="selectImageSource()" class="btn" mat-button>{{'chooseFile' | language}}</button>
+<!--                        <input name="myfile" type="file"/>-->
+                        </div>
+                </div>
+            </div>
+
+            <mat-form-field appearance="outline" class="w-100">
+                <mat-label>{{'fName' | language}}</mat-label>
+                <input formControlName="fname" matInput type="text">
+                <mat-error>{{'enterFname' | language}}</mat-error>
+            </mat-form-field>
+            <mat-form-field appearance="outline" class="w-100">
+                <mat-label>{{'lName' | language}}</mat-label>
+                <input formControlName="lname" matInput type="text">
+                <mat-error>{{'enterLname' | language}}</mat-error>
+            </mat-form-field>
+            <mat-form-field appearance="outline" class="w-100">
+                <mat-label>{{'phoneNo' | language}}</mat-label>
+                <input formControlName="phone" matInput type="tel" maxlength="10" minlength="10">
+                <mat-error>{{'enterVnumber' | language}}</mat-error>
+            </mat-form-field>
+            <mat-form-field appearance="outline" class="w-100">
+                <mat-label>{{'emailAdd' | language}}</mat-label>
+                <input readonly formControlName="email" matInput type="email" disabled>
+            </mat-form-field>
+            <div class="w-100 text-center">
+                <button class="edit_btn" mat-button type="submit">{{'submit' | language}}</button>
+            </div>
+
+        </form>
+    </div>
+
+</ion-content>

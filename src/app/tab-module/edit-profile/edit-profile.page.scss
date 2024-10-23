@@ -1,0 +1,37 @@
+.upload-btn-wrapper {
+  position: relative;
+  overflow: hidden;
+  display: inline-block;
+  margin-top: 60px;
+  margin-left: -25px;
+}
+
+.btn {
+  padding: 4px 20px;
+  border-radius: 8px;
+  font-size: 15px;
+  background-color: #F89142;
+  color: #ffffff;
+}
+
+.upload-btn-wrapper input[type=file] {
+  font-size: 100px;
+  position: absolute;
+  left: 0;
+  top: 0;
+  opacity: 0;
+  border: 1px solid #F89142;
+}
+
+.upload_pic{
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+}
+.edit_btn{
+  padding: 12px 149px;
+  border-radius: 15px;
+  font-size: 18px;
+  background-color: #F89142;
+  color: #ffffff;
+}

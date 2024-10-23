@@ -1,0 +1,65 @@
+.container {
+  margin: 22px 1px !important;
+  padding: 25px 45px !important;
+}
+
+.arrow_img {
+  text-align: end;
+
+  height: 20px;
+  opacity: 0.5;
+  transform: rotate(180deg)
+}
+
+.contact_arrow {
+  height: 25px;
+  transform: rotate(180deg);
+}
+
+.upload-btn-wrapper {
+  position: relative;
+  overflow: hidden;
+  display: inline-block;
+}
+
+.btn {
+  border: 2px dotted #1b1a1a75;
+  font-size: 20px;
+  font-weight: bold;
+  background-color: #f8914252;
+  color: #7C7B7B;
+  border-radius: 15px;
+  padding: 14px 87px;
+  margin-top: 32px;
+}
+
+.upload-btn-wrapper input[type=file] {
+  font-size: 100px;
+  position: absolute;
+  left: 0;
+  top: 0;
+  opacity: 0;
+}
+
+.btn_image {
+  height: 20px;
+  opacity: 0.6;
+}
+
+.btn_smit{
+  background-color: #F89142;
+  color: #fff;
+  border-radius: 15px;
+    padding: 12px 117px;
+  font-size: 20px;
+  margin-top: 10px;
+}
+
+.btn_smit:disabled{
+  background-color: grey;
+  color: #b8afaf;
+  border-radius: 15px;
+  padding: 12px 117px;
+  font-size: 20px;
+  margin-top: 10px;
+}

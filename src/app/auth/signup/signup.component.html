@@ -1,0 +1,67 @@
+<ion-content>
+    <div class="container-fluid position-relative px-0" style="height: 90%">
+        <div class="top w-100 h-50 text-light" style="background-color: #f89142">
+            <div class="text-end padding-4"><button  mat-flat-button class="login-btn" routerLink="/auth/login">{{'login' | language}}</button></div>
+            <div class="text-start heading-pad">
+                <h3 style="font-family: Avenir, serif">{{'letsgetStarted' | language}}</h3>
+                <p>{{'createnewAcc' | language}}</p>
+            </div>
+        </div>
+        <div class="bottom position-absolute w-100 h-75">
+            <form (ngSubmit)="signup()" [formGroup]="signupForm">
+                <div class="padding-3 ">
+                    <mat-form-field appearance="outline" class="w-100" style="margin: 0">
+                        <mat-label>{{'enterEmail' | language}}</mat-label>
+                        <input matInput placeholder="Email" type="email" formControlName="email"/>
+                        <mat-error>{{'enterVEmail' | language}}</mat-error>
+                    </mat-form-field>
+
+                    <mat-form-field appearance="outline" class="w-100" style="margin: 0">
+                        <mat-label>{{'enterPwd' | language}}</mat-label>
+                        <input matInput placeholder="Password" type="password" formControlName="password"/>
+                        <mat-error>{{'enterValidPwd' | language}}</mat-error>
+                    </mat-form-field>
+                    <mat-form-field appearance="outline" class="w-100" style="margin: 0">
+                        <mat-label>{{'confirmPwd' | language}}</mat-label>
+                        <input matInput placeholder="Password" type="password" formControlName="confirmPassword"/>
+                        <mat-error>{{'enterValidPwd' | language}}</mat-error>
+                    </mat-form-field>
+
+                    <div class="row">
+                        <div class="col-12 text-center ps-0 d-flex">
+                            <mat-checkbox (change)="accepted($event)" class=" text-muted check_box"><span
+                                    style="color: #f89142">{{'termAccept' | language}}</span></mat-checkbox>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="text-center">
+                    <button class="signup_btn" mat-raised-button type="submit">{{'register' | language}}</button>
+                    <h6 class="or fs-6 text-muted"><span>{{'or' | language}}</span></h6>
+                </div>
+            </form>
+<!--            <div class="row">-->
+<!--                <span class="text-center text-muted m-b-10">{{'continuewith' | language}}</span>-->
+<!--                <div class="col-6 text-center" style=" margin-left: 23px;">-->
+<!--                    <img-->
+<!--                            alt=""-->
+<!--                            class="social_icon ms-4"-->
+<!--                            src="assets/onboarding3/google.png"-->
+<!--                    />-->
+<!--                </div>-->
+<!--                <div class="col-6 text-center" style="margin-left: -43px;">-->
+<!--                    <img-->
+<!--                            alt=""-->
+<!--                            class="social_icon me-4"-->
+<!--                            src="assets/onboarding3/facebook.png"-->
+<!--                    />-->
+<!--                </div>-->
+<!--            </div>-->
+
+
+            <div class="m-t-25 m-b-25 text-center">
+                <p routerLink="/">{{'skipLogin' | language}}</p>
+            </div>
+        </div>
+    </div>
+</ion-content>

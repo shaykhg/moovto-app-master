@@ -1,0 +1,106 @@
+<mat-card class="my_card" style="border-radius: 15px">
+  <h3 class="fs-5 mb-4 ms-3">{{'dropoffAdd' | language}}</h3>
+
+  <div class=" d-flex justify-content-center align-items-center mb-4 ">
+    <a href="#"><img alt="" class="img_brand " src="assets/deliveryhistory/Matkahuollon_logo.png"
+                     style="height: 43px;margin-left: 20px"></a>
+
+    <a href="#"><img alt="" class="img_brand " src="assets/deliveryhistory/postnord-logo-png.png"
+                     style="height: 68px;margin-left: 20px"></a>
+
+    <a href="#"><img alt="" class="img_brand " src="assets/deliveryhistory/Posti_Group.png"
+                     style="height: 40px;margin-left: 20px"></a>
+  </div>
+  <mat-form-field style="width:100%">
+    <mat-label class="text-black-50 ">{{'searchPlace' | language}}</mat-label>
+    <input
+            #dropTerm (input)="handleSearch(dropTerm.value, 2)" [(ngModel)]="placeNameDrop" matInput
+            type="text"
+
+    />
+    <mat-error>{{'thisfieldMandatory' | language}}</mat-error>
+    <div class="autocomplete-panel">
+      <mat-card *ngIf="resultsDrop.length > 0">
+        <div (click)="setDropAddress(place)" *ngFor="let place of resultsDrop"
+             class="t-left autocomplete-row">
+          <p>{{place.description}}</p>
+          <hr>
+        </div>
+      </mat-card>
+    </div>
+  </mat-form-field>
+  <form [formGroup]="dropForm">
+
+
+    <div style="border-left: 2px dotted;padding-left: 19px;">
+
+      <div class="row mt-4">
+        <div class="col-6 ">
+          <mat-form-field style="width:100%">
+            <mat-label class=" text-black-50">{{'building' | language}}</mat-label>
+            <input
+                    formControlName="dropBuilding"
+                    matInput
+                    type="text"
+            />
+            <mat-error>{{'thisfieldMandatory' | language}}</mat-error>
+          </mat-form-field>
+        </div>
+        <div class="col-6">
+          <mat-form-field style="width:100%">
+            <mat-label class=" text-black-50">{{'street' | language}}</mat-label>
+            <input
+                    formControlName="dropStreet"
+                    matInput
+                    type="text"
+            />
+            <mat-error> {{'thisfieldMandatory' | language}}</mat-error>
+          </mat-form-field>
+        </div>
+      </div>
+
+      <div class="row mt-4">
+        <div class="col-6 ">
+          <mat-form-field style="width:100%">
+            <mat-label class=" text-black-50">{{'postCode' | language}}</mat-label>
+            <input
+                    formControlName="dropPostCode"
+                    matInput
+                    type="text"
+            />
+            <mat-error> {{'thisfieldMandatory' | language}}</mat-error>
+          </mat-form-field>
+        </div>
+        <!--                        <div class="col-6 p-2"></div>-->
+      </div>
+      <div class="row mt-4">
+        <div class="col-6 ">
+          <mat-form-field style="width:100%">
+            <mat-label class=" text-black-50">{{'name' | language}}</mat-label>
+            <input
+                    formControlName="dropName"
+                    matInput
+                    type="text"
+            />
+            <mat-error>{{'thisfieldMandatory' | language}}</mat-error>
+          </mat-form-field>
+        </div>
+        <div class="col-6 ">
+          <mat-form-field style="width:100%">
+            <mat-label class=" text-black-50">{{'phone' | language}}</mat-label>
+            <input
+                    formControlName="dropPhone"
+                    matInput
+                    type="text"
+            />
+            <mat-error>{{'thisfieldMandatory' | language}}</mat-error>
+          </mat-form-field>
+        </div>
+      </div>
+    </div>
+
+  </form>
+  <div class="sub_btn ">
+    <button (click)="dropOff()" class="conti_btn" mat-button>{{'continue' | language}}</button>
+  </div>
+</mat-card>

@@ -1,0 +1,49 @@
+<div *ngIf="!showConfirm">
+  <div style="padding: 35px;">
+    <p>{{'provideE' | language}}:</p>
+    <p>-{{'arrivenoticeSaap' | language}}</p>
+    <p>-{{'snapofSms' | language}}</p>
+  </div>
+  <div class="container">
+<!--    <input-->
+<!--            type="file"-->
+<!--            #fileInput-->
+<!--            (change)="uploadFile($event)"-->
+<!--            hidden="true"-->
+<!--            accept="image/*"-->
+<!--    />-->
+    <div class="shot" (click)="selectImageSource()">
+      <img alt="" class="pic_shot" src="assets/deliveryhistory/camera.png">
+      <p>{{'clickChoose' | language}}</p>
+    </div>
+    <div class="text-center">
+      <!--    <a class="text-center text-decoration-none" href="#" style="color: #F78C3A">Take Picture</a>-->
+    </div>
+
+
+    <div class="upload text-center">
+      <button class="upload_btn" mat-button (click)="confirmImage(true)" [disabled]="!validImage">{{'upload' | language}}</button>
+    </div>
+  </div>
+</div>
+
+<div *ngIf="showConfirm">
+
+    <div class="text-center m-t-15">
+          <span class="pic ">
+    <img style="width: 60%" [src]="selectedImage">
+  </span>
+    </div>
+
+  <p class="text-center m-t-10 m-b-10">{{'picClear' | language}}</p>
+  <div class="dis-flex  text-center">
+    <div class="flex-grow-1">
+      <button mat-raised-button class="upload_btn" (click)="confirmImage(false)">{{'goBack' | language}}</button>
+    </div>
+
+    <div class="flex-grow-1">
+      <button mat-raised-button class="upload_btn" (click)="proceedWithImage()">{{'proceed' | language}}</button>
+    </div>
+  </div>
+</div>
+

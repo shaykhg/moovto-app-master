@@ -1,0 +1,44 @@
+<ion-header>
+    <ion-toolbar>
+        <ion-title>{{'history' | language}}</ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <div class="container">
+        <div *ngIf="setOrders >0">
+            <div class="del_history">
+                <h1 class="fs-5">{{'deliveryHistory' | language}}</h1>
+                <img
+                        alt=""
+                        class="delv_icon"
+                        src="assets/deliveryhistory/filter.png"
+                />
+            </div>
+
+            <div class="main">
+                <img alt="" src="assets/deliveryhistory/emptystate/cat.png">
+                <p> {{'noDeliveryrecords' | language}}  </p>
+            </div>
+            <div class="deliveries">
+                <p class=" mb-0">{{'allDeliveries' | language}}</p>
+                <span>{{'nofilterApplied' | language}}   </span>
+            </div>
+        </div>
+
+        <div *ngFor="let order of setOrders" class="delvieries_history mt-4" (click)="openDetails(order)">
+            <div class="history_icon mb-3">
+                <img alt="" src="assets/deliveryhistory/history.png" style="padding: 2px 1px 3px 0"/>
+            </div>
+            <div class="history_msg" >
+                <p style="color: black;font-weight: bold">{{order.id}}</p>
+                <p>{{util.getHumanShortDate(order.date)}}</p>
+            </div>
+            <div class="history_ico mb-3">
+                <img alt="" class="arrow" src="assets/deliveryhistory/left-arrow.png"/>
+            </div>
+        </div>
+
+    </div>
+
+</ion-content>

@@ -1,0 +1,16 @@
+<div class="p-4">
+    <mat-card style="border-radius: 22px;">
+        <div class="brand_image d-flex justify-content-center align-items-center flex-column">
+            <img alt="" class="img_brand " src="assets/deliveryhistory/Matkahuollon_logo.png" style="height: 80px">
+            <img alt="" class="img_brand mt-5" src="assets/deliveryhistory/Posti_Group.png" style="height: 60px">
+            <img alt="" class="img_brand " src="assets/deliveryhistory/postnord-logo-png.png">
+            <p class="text-center brand_text">{{'saapimuslimotius' | language}}</p>
+        </div>
+
+    </mat-card>
+    <p tooltip="{{'deliverParcelbyfoot' | language}}" placement="top" class="confirm_text">👉{{'confirmParcel' | language}}</p>
+    <div class="confirm_btn d-flex justify-content-center">
+        <button routerLink="/" class="exit_btn" mat-button>{{'exit' | language}}</button>
+        <button class="proceed_btn " mat-button (click)="proceed()">{{'proceed' | language}}</button>
+    </div>
+</div>

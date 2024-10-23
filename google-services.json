@@ -1,0 +1,69 @@
+{
+  "project_info": {
+    "project_number": "889331048956",
+    "firebase_url": "https://easyshifters-e1e64.firebaseio.com",
+    "project_id": "easyshifters-e1e64",
+    "storage_bucket": "easyshifters-e1e64.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:889331048956:android:3550b9d5d9108119ac9279",
+        "android_client_info": {
+          "package_name": "app.moov.to"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "889331048956-hhohoeaujt2kukmplo7gsqqau4fo8moc.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": ""
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "889331048956-hhohoeaujt2kukmplo7gsqqau4fo8moc.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:889331048956:android:c998f6c7ff16e154ac9279",
+        "android_client_info": {
+          "package_name": "com.snatch.app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "889331048956-hhohoeaujt2kukmplo7gsqqau4fo8moc.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": ""
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "889331048956-hhohoeaujt2kukmplo7gsqqau4fo8moc.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

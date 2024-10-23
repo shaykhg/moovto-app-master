@@ -1,0 +1,80 @@
+<ion-content>
+    <div class="container-fluid position-relative h-100 px-0">
+        <div class="top w-100 h-50 text-light" style="background-color: #f89142">
+            <div class="text-end p-4"><button mat-flat-button class="reg-btn" routerLink="/auth/signup">{{'register' | language}}</button></div>
+            <div class="text-start p-4">
+                <h3 style="font-family: Avenir, serif">{{'welcomeBack' | language}}</h3>
+                <p>{{'signinCOntinue' | language}}</p>
+            </div>
+        </div>
+        <div class="bottom position-absolute w-100 h-75">
+            <div class="login_cont p-5">
+
+                <form (ngSubmit)="login(email.value, password.value)" [formGroup]="loginForm" >
+                    <mat-form-field appearance="outline" class="w-100">
+                        <mat-label>{{'enterEmail' | language}}</mat-label>
+                        <input formControlName="email" matInput placeholder="Email" type="email" #email>
+                        <mat-error>{{'enterEmailUname' | language}}</mat-error>
+                    </mat-form-field>
+
+                    <mat-form-field appearance="outline" class="w-100">
+
+                        <mat-label>{{'enterYPwd' | language}}</mat-label>
+                        <input formControlName="password" matInput placeholder="Password" type="password" #password>
+                        <mat-error>{{'enterYPwd' | language}}</mat-error>
+                    </mat-form-field>
+
+<!--                    <div class="row">-->
+<!--                        <div class="col-6 ps-2">-->
+<!--                            <mat-checkbox class=" text-muted check_box">{{'staySign' | language}}</mat-checkbox>-->
+
+<!--                        </div>-->
+<!--                        <div class="col-6">-->
+<!--                            &lt;!&ndash;                            <span class="text-end  forget_password"><a routerLink="/auth/forgetpassword" class="text-decoration-none text-muted">Forget Password?</a></span>&ndash;&gt;-->
+
+
+<!--                        </div>-->
+<!--                    </div>-->
+                    <div class="text-center mt-2 mb-4">
+                        <button class="login_btn" mat-raised-button type="submit">{{'login' | language}}</button>
+                        <h6 class="or fs-6 text-muted"><span>OR</span></h6>
+                    </div>
+                </form>
+
+                <div class="row">
+                    <span class="text-center mb-3 text-muted">{{'continuewith' | language}}</span>
+                    <div class="col text-center">
+                        <img
+                                alt=""
+                                class="social_icon ms-4"
+                                src="assets/onboarding3/google.png"
+                                (click)="doGoogleLogin()"
+
+                        />
+                    </div>
+                    <div class="col text-center">
+                        <img
+                                alt=""
+                                class="apple-icon me-4 me-5"
+                                src="assets/onboarding3/facebook.png"
+                                (click)="doFbLogin()"
+                        />
+                    </div>
+
+                    <div class="col text-center" *ngIf="device === 'ios'">
+                        <img
+                                alt=""
+                                class="apple-icon me-4 me-5"
+                                src="assets/icon/apple.png"
+                                (click)="openAppleSignIn()"
+                        />
+                    </div>
+                </div>
+                <div class="m-t-25 text-center">
+                    <p routerLink="/">{{'skipLogin' | language}}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</ion-content>

@@ -1,0 +1,11 @@
+<!--<div class="signature w-100">-->
+
+  <canvas class="myCanvas" #imageCanvas (touchmove)="moved($event)"
+          (touchstart)="startDrawing($event)"></canvas>
+
+
+  <div class="m-t-20">
+    <button (click)="saveCanvasImage()" class="canvas_btn" [disabled]="count < 5"  mat-raised-button>{{'confirmSign' | language}}
+    </button>
+  </div>
+<!--</div>-->

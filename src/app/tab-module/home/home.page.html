@@ -1,0 +1,100 @@
+<!--<ion-header>-->
+<!--    <ion-toolbar>-->
+<!--        <ion-title>Home</ion-title>-->
+<!--    </ion-toolbar>-->
+<!--</ion-header>-->
+
+<ion-content>
+    <div class="top">
+        <div class="info">
+            <h2 class="mt-4">{{translation.greeting}}!</h2>
+            <h1>{{'trackshipment' | language}}</h1>
+            <p class="font_size">{{'enterOidtrackshipment' | language}}</p>
+            <div class="input_field">
+
+                <img alt="" class="icon" src="assets/home/shopping.png"/>
+                <input #orderId class="order_input form-control" placeholder="{{'orderId' | language}}" type="text"/><span>
+                <button (click)="findOrder(orderId.value)" mat-flat-button class="search-btn"><ion-icon name="search-outline"></ion-icon></button>
+                </span>
+            </div>
+        </div>
+
+        <img alt="" class="hand_img" src="assets/home/hand_png.png"/>
+    </div>
+    <div class="bottom">
+        <p class="work">{{'howWork' | language}}</p>
+
+        <div  class="bottom_div">
+            <img alt="" src="assets/home/Male_couriers_delivering_parcels.png"/>
+            <div class=" btn_div">
+                <div class="row">
+                    <div class="col-6 mt-3">
+                        <p class="mb-0 ">{{'pickDrop' | language}}</p>
+                        <span (click)="expandableCards.pickup = !expandableCards.pickup">{{'tapKnow' | language}}</span>
+                    </div>
+
+<!--                    <div class="col-4 mt-4">-->
+<!--                        <button class="order_btn" mat-button routerLink="/order/delivery" (click)="setFlow(1)">{{'order' | language}}</button>-->
+<!--                    </div>-->
+                    <div class="col-6 mt-4">
+                        <button disabled class="order_btn" mat-button>{{'comingsooon' | language}}</button>
+                    </div>
+                </div>
+            </div>
+            <div *ngIf="expandableCards.pickup" class="option">
+                <div class="option_div"><span><span class="num">1</span></span><div>{{'chooseCategory' | language}}</div></div>
+                <div class="option_div"><span><span class="num">2</span></span><div>{{'fillpickDrop' | language}}</div></div>
+                <div class="option_div"><span><span class="num">3</span></span><div>{{'chooseTvehicle' | language}}</div></div>
+            </div>
+        </div>
+
+        <div class="bottom_div">
+            <img alt="" src="assets/home/parcel_delivery.png"/>
+            <div class=" btn_div">
+                <div class="row">
+                    <div class="col-8 mt-3">
+                        <p class="mb-0 ">{{'parcelDeliver' | language}}</p>
+                        <span (click)="expandableCards.parcel = !expandableCards.parcel" >{{'tapKnow' | language}}</span>
+                    </div>
+                    <div class="col-4 mt-4">
+                        <button class="order_btn" mat-button (click)="setFlow(2)">{{'order' | language}}</button>
+                    </div>
+                </div>
+            </div>
+
+            <div *ngIf="expandableCards.parcel" class="option">
+                <div class="option_div"><span><span class="num">1</span></span><div>{{'uploadSaap' | language}}</div></div>
+                <div class="option_div"><span><span class="num">2</span></span><div>{{'fillpickupdrop' | language}}</div></div>
+                <div class="option_div"><span><span class="num">3</span></span><div>{{'Choosetime' | language}}</div></div>
+                <div class="option_div"><span><span class="num">4</span></span><div class="text-start" href="#">{{'riderpickupparcellocalpo' | language}}</div></div>
+            </div>
+        </div>
+
+        <div  class="bottom_div">
+            <img alt="" src="assets/home/Parcel_return.png"/>
+            <div class=" btn_div">
+                <div class="row">
+                    <div class="col-6 mt-3">
+                        <p class="mb-0 ">{{'parcelReturn' | language}}</p>
+                        <span (click)="expandableCards.parcelReturn = !expandableCards.parcelReturn">{{'tapKnow' | language}}</span>
+                    </div>
+<!--                    <div class="col-4 mt-4">-->
+<!--                        <button class="order_btn" mat-button (click)="pageRoute(2)">Order</button>-->
+<!--                    </div>-->
+                    <div class="col-6 mt-4">
+                        <button disabled class="order_btn" mat-button>{{'comingsooon' | language}}</button>
+                    </div>
+                </div>
+            </div>
+
+            <div *ngIf="expandableCards.parcelReturn" class="option">
+                <div class="option_div"><span><span class="num">1</span></span><div>{{'fillpickupdrop' | language}}</div></div>
+                <div class="option_div"><span><span class="num">2</span></span><div>{{'Choosetime' | language}}</div></div>
+                <div class="option_div"><span><span class="num">3</span></span><div>{{'riderpickparcelH' | language}}</div></div>
+                <div class="option_div"><span><span class="num">4</span></span><div>{{'riderpickupparcellocalpo' | language}}</div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</ion-content>

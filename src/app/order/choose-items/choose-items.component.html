@@ -1,0 +1,23 @@
+<ion-content>
+    <div class="text_sugg">
+        <p class="text-black-50">{{'chooseoptionbelow' | language}}.</p>
+    </div>
+
+    <mat-tab-group [selectedIndex]="data.parcelDelTabIndex" >
+        <mat-tab label="1.{{'ParcelD' | language}} {{data.parcelDelOrder[0]}}" [disabled]="data.parcelDelOrder[0]">
+            <app-parcel-del-drop></app-parcel-del-drop>
+        </mat-tab>
+
+        <mat-tab label="2. Valtakrija {{data.parcelDelOrder[1]}}" [disabled]="data.parcelDelOrder[1]">
+            <app-address></app-address>
+        </mat-tab>
+
+        <mat-tab label="3. {{'yourDetail' | language}} {{data.parcelDelOrder[2]}}" [disabled]="data.parcelDelOrder[2]">
+            <app-time-schedule></app-time-schedule>
+        </mat-tab>
+
+        <mat-tab label="{{'paymentsteF' | language}} {{data.parcelDelOrder[3]}}" [disabled]="data.parcelDelOrder[4]">
+            <app-checkout></app-checkout>
+        </mat-tab>
+    </mat-tab-group>
+</ion-content>

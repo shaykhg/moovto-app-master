@@ -1,0 +1,80 @@
+* {
+  font-family:Nunito,sans-serif;
+}
+
+.text_sugg {
+  margin-left: 38px;
+  margin-top: 29px;
+}
+
+.brand_image {
+  padding: 16px;
+}
+
+.img_brand {
+  margin-top: 20px;
+}
+
+
+.confirm_btn {
+
+}
+
+.confirm_text {
+  text-align: center;
+  margin: 28px 0px;
+  font-family: sf, serif;
+}
+
+.brand_text {
+  color: #F78C3A;
+  font-family: sf, serif;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.proceed_btn, .exit_btn {
+  background-color: #F89142;
+  color: #fff;
+  border-radius: 15px;
+  margin-left: 22px;
+  padding: 6px 59px;
+}
+
+.exit_btn {
+  margin-left: 0px;
+  padding: 0px 70px;
+}
+
+.sub_btn {
+  text-align: center;
+  margin-top: 65px;
+}
+
+.conti_btn, .btn_delv {
+  background-color: #F89142;
+  color: #fff;
+  border-radius: 15px;
+  padding: 6px 95px;
+}
+
+.payment_btn, .upload_btn,.pic_btns {
+  background-color: #F89142;
+  margin-top: 20px;
+  color: #fff;
+  padding: 10px 30px;
+  border-radius: 15px;
+}
+
+canvas{
+  width: 100%;
+  border: 2px inset rgb(187, 178, 178);
+}
+
+.modal{
+  //height: 0!important;
+}
+
+
+
+

@@ -1,0 +1,153 @@
+<ion-header>
+    <ion-toolbar>
+        <div class="dis-flex justify-content-between">
+            <span  class="align-self-center">
+                <ion-title >{{'profile' | language}}</ion-title>
+            </span>
+            <span>
+                <img alt="" class="m-r-15" routerLink="/edit-profile" src="assets/deliveryhistory/edit.png" style="height: 25px">
+            </span>
+        </div>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content class="bg1" >
+    <div *ngIf="session.isLoggedIn && this.userData" class="container">
+    <!--        <div class="row ">-->
+    <!--            <div class="col-12 text-end ">-->
+    <!--                <img alt="" class="mt-4 me-3" routerLink="/edit-profile" src="assets/deliveryhistory/edit.png"-->
+    <!--                     style="height: 25px">-->
+    <!--            </div>-->
+    <!--        </div>-->
+
+        <mat-card class="profile-card">
+            <div class="row p-2">
+                <div class="col-4 mt-4">
+                    <img
+                            alt=""
+                            class="prfl_pic"
+                            [src]="session.getUser().profile_pic ? ('https://api.easyshifters.com' + session.getUser().profile_pic.formats.small.url) : 'assets/profile/profile_pic.jpeg'"
+                            style="padding: 20px 0px"
+                    />
+                    <!--                <p class="mb-5" style="color: #f89142">Change Image</p>-->
+                </div>
+                <div class="col-8 mt-5">
+                    <p>
+					<span
+                    ><img
+                            alt=""
+                            class="user_icon"
+                            src="assets/profile/user.png"
+                            style="height: 20px; margin-right: 10px"
+                    /></span>
+                        {{userData.name}}
+                    </p>
+                    <p>
+					<span
+                    ><img
+                            alt=""
+                            class="user_icon"
+                            src="assets/profile/phone-call.png"
+                            style="height: 20px; margin-right: 10px"
+                    /></span>
+                        {{userData.mobile}}
+                    </p>
+                    <p>
+					<span
+                    ><img
+                            alt=""
+                            class="user_icon"
+                            src="assets/profile/envelope.png"
+                            style="height: 20px; margin-right: 10px"
+                    /></span>
+                        {{userData.email}}
+                    </p>
+                </div>
+            </div>
+
+        </mat-card>
+
+        <div class="row mt-5" (click)="expandableCards.lang = !expandableCards.lang">
+            <div class="col-2">
+                <img
+                        alt=""
+                        class="ms-4"
+                        src="assets/profile/world-wide-web.png"
+                        style="height: 26px;"
+                />
+            </div>
+
+
+            <div class="col-8"><p>{{'preferLang' | language}}</p></div>
+            <div class="col-2">
+                <img
+                        alt=""
+                        class="user_arrow"
+                        src="assets/deliveryhistory/left-arrow.png"
+                        (click)="showLang = !showLang"
+                />
+            </div>
+
+            <div style="margin-left: 32px" *ngIf="showLang">
+                <mat-radio-group [(ngModel)]="lang" (change)="changeLang($event)" aria-label="Select an option" class="d-flex flex-column">
+                    <mat-radio-button value="en" class="fs-16">English</mat-radio-button>
+                    <mat-radio-button class="m-t-10 fs-16" value="fi">Finnish</mat-radio-button>
+                </mat-radio-group>
+            </div>
+        </div>
+<!--        <div routerLink="/auth/forgetpassword" class="row mt-4">-->
+<!--            <div class="col-2">-->
+<!--                <img-->
+<!--                        alt=""-->
+<!--                        class="ms-4"-->
+<!--                        src="assets/profile/lock.png"-->
+<!--                        style="height: 26px;"-->
+<!--                />-->
+<!--            </div>-->
+<!--            <div class="col-8"><p>Change Password</p></div>-->
+<!--            <div class="col-2">-->
+<!--                <img-->
+<!--                        alt=""-->
+<!--                        class="user_arrow"-->
+<!--                        src="assets/deliveryhistory/left-arrow.png"-->
+<!--                />-->
+<!--            </div>-->
+<!--        </div>-->
+        <div class="row mt-4">
+            <div class="col-2">
+                <img
+                        alt=""
+                        class="ms-4"
+                        src="assets/profile/information.png"
+                        style="height: 26px;"
+                />
+            </div>
+            <div class="col-8" routerLink="/misc/contact"><p>{{'needHelp' | language}}?</p></div>
+            <div class="col-2">
+                <img
+                        alt=""
+                        class="user_arrow"
+                        src="assets/deliveryhistory/left-arrow.png"
+                />
+            </div>
+        </div>
+        <div class="row mt-4" (click)="logOut()">
+            <div class="col-2">
+                <img
+                        alt=""
+                        class="ms-4"
+                        src="assets/profile/logout.png"
+                        style="height: 26px;"
+                />
+            </div>
+            <div class="col-8"><p>{{'logout' | language}}</p></div>
+            <div class="col-2">
+                <img
+                        alt=""
+                        class="user_arrow"
+                        src="assets/deliveryhistory/left-arrow.png"
+                />
+            </div>
+        </div>
+    </div>
+</ion-content>

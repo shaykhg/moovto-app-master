@@ -1,0 +1,7 @@
+{
+  "name": "moveapp",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}

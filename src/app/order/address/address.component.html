@@ -1,0 +1,178 @@
+<script src="address.component.ts"></script>
+<mat-card class="my_card " style="border-radius: 15px;margin: 16px">
+
+    <h3 class="fs-5 mb-4 ms-3 m-t-25">{{'powerofAttorney' | language}}</h3>
+    <form [formGroup]="pickUpAddress" >
+
+
+        <div >
+
+            <div class="row mt-1">
+                <div>
+                    <mat-form-field style="width:100%">
+                        <mat-label class=" text-black-50">{{'yourName' | language}}</mat-label>
+                        <input
+                                formControlName="name"
+                                matInput
+                                type="text"
+                                required
+                        />
+                        <mat-error>{{'fieldntValid' | language}}</mat-error>
+                    </mat-form-field>
+                </div>
+                <div>
+                    <mat-form-field style="width:100%">
+                        <mat-label class=" text-black-50">{{'yourPhone' | language}}</mat-label>
+                        <input
+                                formControlName="phone"
+                                matInput
+                                type="tel"
+                                minlength="10"
+                                maxlength="10"
+                                required
+                                placeholder="9876543210"
+                        />
+                        <mat-error>{{'fieldntValid' | language}}</mat-error>
+                    </mat-form-field>
+                </div>
+            </div>
+
+            <div class="row mt-1">
+                <mat-form-field style="width:100%">
+                    <mat-label class="text-black-50 ">{{'searchStreet' | language}}</mat-label>
+                    <input
+                        #pickupTerm
+                        [(ngModel)]="placeNamePickup"
+                        (input)="handleSearch(pickupTerm.value, 1)"
+                        [ngModelOptions]="{standalone: true}"
+                        matInput
+                        required
+                        type="text"
+                    />
+                    <div id="autoBalloon">
+                        <mat-card *ngIf="resultsPick.length > 0">
+                            <div (click)="setPickUpAddress(place)" *ngFor="let place of resultsPick"
+                                 class="t-left autocomplete-row">
+                                <p>{{place.description}}</p>
+                                <hr>
+                            </div>
+                        </mat-card>
+                    </div>
+                </mat-form-field>
+
+            </div>
+
+            <div class="row mt-1">
+                <div>
+                    <mat-form-field style="width:100%">
+                        <mat-label class=" text-black-50">{{'postOfficeLoc' | language}}</mat-label>
+                        <input
+                                formControlName="building"
+                                matInput
+                                type="text"
+                                required
+                        />
+                        <mat-error>{{'fieldntValid' | language}}</mat-error>
+                    </mat-form-field>
+                </div>
+                <div>
+<!--                    <mat-form-field style="width:100%">-->
+<!--                        <mat-label class=" text-black-50">Street</mat-label>-->
+<!--                        <input-->
+<!--                                formControlName="street"-->
+<!--                                matInput-->
+<!--                                type="text"-->
+<!--                                required-->
+<!--                        />-->
+<!--                        <mat-error>Field Not Valid</mat-error>-->
+<!--                    </mat-form-field>-->
+                </div>
+            </div>
+
+            <div class="row mt-1">
+                <div>
+                    <mat-form-field style="width:100%">
+                        <mat-label class=" text-black-50">{{'city' | language}}</mat-label>
+                        <input
+                                formControlName="city"
+                                matInput
+                                type="text"
+                                required
+                        />
+                        <mat-error>{{'fieldntValid' | language}}</mat-error>
+                    </mat-form-field>
+                </div>
+            </div>
+
+            <div class="row mt-1">
+                <div>
+                    <mat-form-field style="width:100%">
+                        <mat-label class=" text-black-50">{{'postCode' | language}}</mat-label>
+                        <input
+                                formControlName="postCode"
+                                matInput
+                                type="text"
+                                minlength="5"
+                                maxlength="5"
+                                required
+                        />
+                        <mat-error>{{'fieldntValid' | language}}</mat-error>
+                    </mat-form-field>
+                </div>
+                <div>
+                    <p tooltip="*{{'ifPacketIs' | language}}" placement="top" class="confirm_text m-l-10">👉{{'whatIsLocker' | language}}</p>
+
+                    <mat-form-field style="width:100%">
+                        <mat-label class=" text-black-50">{{'packetidLcode' | language}}</mat-label>
+                        <input
+                                formControlName="packetId"
+                                matInput
+                                type="text"
+                                required
+                        />
+                        <mat-error>{{'fieldntValid' | language}}</mat-error>
+                    </mat-form-field>
+                </div>
+
+            </div>
+
+        </div>
+
+    </form>
+
+
+        <mat-form-field appearance="outline" class="w-full">
+            <mat-label>{{'selectPost' | language}}</mat-label>
+
+            <mat-select required [(ngModel)]="postOffice">
+                <mat-option value="matkahuolto">{{'matkahuolto' | language}}</mat-option>
+                <mat-option value="postnord">{{'postnord' | language}}</mat-option>
+                <mat-option value="posti">{{'posti' | language}}</mat-option>
+            </mat-select>
+        </mat-form-field>
+
+
+        <div class="t-center">
+            <h3 *ngIf="postOffice === ''">{{'noPostofficeselect' | language}}</h3>
+            <img *ngIf="postOffice === 'matkahuolto'" alt="" class="img_brand " src="../../../assets/deliveryhistory/Matkahuollon_logo.png"
+            >
+
+            <img *ngIf="postOffice === 'postnord'" style="width: 50%" alt="" class="img_brand " src="../../../assets/deliveryhistory/postnord-logo-png.png"
+            >
+
+            <img *ngIf="postOffice === 'posti'" alt="" class="img_brand " src="../../../assets/deliveryhistory/Posti_Group.png"
+            >
+        </div>
+        <div class="m-t-30">
+            <p class="t-left" *ngIf="saved">*{{'signSaved' | language}}</p>
+        <div class="text-center">   
+            <button (click)="openDialog()" class="conti_btn mb-4" type="button" mat-raised-button>{{'sign' | language}}</button>
+        </div>
+
+        <div class="sub_btn mb-5 text-center">
+            <button (click)="pickupSubmit()" type="submit" [disabled]="!pickUpAddress.valid || !saved" class="conti_border_btn" mat-flat-button>{{'continue' | language}}</button>
+        </div>
+        </div>
+</mat-card>
+
+
